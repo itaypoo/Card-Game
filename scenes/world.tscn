@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/boss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/cards/boss_cards/card_shoot_lazers.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/cards/boss_cards/card_shoot_rockets.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/cards/boss_cards/card_fire_breath.tscn" type="PackedScene" id=5]
 
 [node name="world" type="Node2D"]
 
@@ -15,3 +17,9 @@ position = Vector2( 805, 305 )
 
 [node name="card_shoot_lazers" parent="." instance=ExtResource( 3 )]
 position = Vector2( 681, 156 )
+
+[node name="card_shoot_rockets" parent="." instance=ExtResource( 4 )]
+position = Vector2( 686, 356 )
+
+[node name="Area2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 586, 265 )
