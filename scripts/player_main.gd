@@ -6,6 +6,7 @@ var player_bullet = preload("res://scenes/player_bullet.tscn")
 var shoot_cd = 0
 
 var player_hp = 10
+var invis = 0
 
 func _physics_process(_delta):
 	global.player_pos = self.position
@@ -18,12 +19,15 @@ func _physics_process(_delta):
 		spawn_bullet()
 		shoot_cd = 10
 	shoot_cd -= 1
+	if invis > 0: invis -= 1
 
-func hurt_player():
-	player_hp -= 1
-	print(player_hp)
-	if player_hp <= 0:
-		queue_free()
+func hurt_player(hp):
+	if invis <= 0:
+		player_hp -= hp
+		invis = 20
+		print(player_hp)
+		if player_hp <= 0:
+			queue_free()
 		
 func spawn_bullet():
 	var bullet_inst = player_bullet.instance()
