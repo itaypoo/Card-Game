@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/leg.png-f78e5f08aa5f493a11030cf73c917506.stex"
+path="res://.import/glasses.png-b019ecd456f08660c34e900e5c3df57f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/player/leg.png"
-dest_files=[ "res://.import/leg.png-f78e5f08aa5f493a11030cf73c917506.stex" ]
+source_file="res://textures/player/glasses.png"
+dest_files=[ "res://.import/glasses.png-b019ecd456f08660c34e900e5c3df57f.stex" ]
 
 [params]
 

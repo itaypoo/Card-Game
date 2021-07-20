@@ -1,6 +1,5 @@
 extends Area2D
 
-onready var move_anim = $sprites/move_anim
 onready var sprites_node = $sprites
 
 var player_bullet = preload("res://scenes/player_bullet.tscn")
@@ -26,14 +25,14 @@ func _physics_process(_delta):
 		moving = true
 	if Input.is_action_pressed("player_left"): 
 		position.x -= move_speed
-		sprites_node.scale.x = -0.4
+		sprites_node.scale.x = -0.6
 		moving = true
 	elif Input.is_action_pressed("player_right"): 
 		position.x += move_speed
-		sprites_node.scale.x = 0.4
+		sprites_node.scale.x = 0.6
 		moving = true
 	
-	if moving: move_anim.play("walk_anim")
+	if moving: pass
 	
 	if shoot_cd <= 0 and Input.is_action_pressed("player_shoot"): 
 		spawn_bullet()

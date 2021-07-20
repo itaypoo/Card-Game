@@ -1,135 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://textures/player/body.png" type="Texture" id=1]
+[ext_resource path="res://textures/player/head_sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player_main.gd" type="Script" id=2]
-[ext_resource path="res://textures/player/leg.png" type="Texture" id=3]
-[ext_resource path="res://textures/player/hair.png" type="Texture" id=4]
+[ext_resource path="res://textures/player/glasses.png" type="Texture" id=3]
+[ext_resource path="res://textures/player/tie.png" type="Texture" id=4]
+[ext_resource path="res://textures/player/band.png" type="Texture" id=5]
+[ext_resource path="res://textures/player/body_sheet.png" type="Texture" id=6]
+[ext_resource path="res://textures/player/skirt.png" type="Texture" id=7]
+[ext_resource path="res://textures/player/leg_sheet.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "disco"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 0, 0, 1 ), Color( 0.00784314, 1, 0, 1 ), Color( 0, 0.0392157, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "walk_anim"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("leg_right:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 0.5, 0.5, 0.5 ),
-"update": 0,
-"values": [ 0.0, 15.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("leg_right:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -35, 55 ), Vector2( -35, 52 ), Vector2( -35, 55 ), Vector2( -35, 52 ), Vector2( -35, 55 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("body:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( -2, -2, -2 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 3 ), Vector2( 0, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("hair:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( -2, -2, -2 ),
-"update": 0,
-"values": [ Vector2( -24, -82 ), Vector2( -24, -83 ), Vector2( -24, -82 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("leg_left:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 0.5, 0.5, 0.5 ),
-"update": 0,
-"values": [ 0.0, -15.0, 0.0 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("leg_left:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5 ),
-"update": 0,
-"values": [ Vector2( 35, 55 ), Vector2( 35, 52 ), Vector2( 35, 55 ), Vector2( 35, 52 ), Vector2( 35, 55 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath(".:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 0.5, 0.5, 0.5 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "walk_new"
-length = 0.3
-loop = true
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("leg_right:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 0.5, 0.5 ),
-"update": 0,
-"values": [ Vector2( -35, 55 ), Vector2( -35, 50 ) ]
-}
 
 [node name="player" type="Area2D" groups=[
 "player",
@@ -140,31 +21,41 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="sprites" type="Node2D" parent="."]
-modulate = Color( 0.00196078, 0.279412, 0.75, 1 )
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.6, 0.6 )
 
-[node name="hair" type="Sprite" parent="sprites"]
-position = Vector2( -24, -82 )
-rotation = -0.311485
+[node name="leg_sheet" type="Sprite" parent="sprites"]
+position = Vector2( -16.5334, 67.234 )
+texture = ExtResource( 8 )
+hframes = 4
+
+[node name="leg_sheet2" type="Sprite" parent="sprites"]
+position = Vector2( 16.7521, 67.5844 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
+hframes = 4
+
+[node name="body_sheet" type="Sprite" parent="sprites"]
+position = Vector2( 0.467682, -3.23896 )
+texture = ExtResource( 6 )
+hframes = 4
+
+[node name="tie" type="Sprite" parent="sprites"]
+position = Vector2( 1.95567, -28.2107 )
 texture = ExtResource( 4 )
 
-[node name="leg_right" type="Sprite" parent="sprites"]
-position = Vector2( -35, 55 )
-rotation = 0.349066
-texture = ExtResource( 3 )
-offset = Vector2( 0, 20 )
-
-[node name="leg_left" type="Sprite" parent="sprites"]
-position = Vector2( 35, 55 )
-rotation = 0.349066
-texture = ExtResource( 3 )
-offset = Vector2( 0, 20 )
-
-[node name="body" type="Sprite" parent="sprites"]
-scale = Vector2( 1, 1 )
+[node name="Sprite" type="Sprite" parent="sprites"]
+position = Vector2( 0, -76.6667 )
 texture = ExtResource( 1 )
+hframes = 4
 
-[node name="move_anim" type="AnimationPlayer" parent="sprites"]
-anims/disco = SubResource( 2 )
-anims/walk_anim = SubResource( 3 )
-anims/walk_new = SubResource( 4 )
+[node name="glasses" type="Sprite" parent="sprites"]
+position = Vector2( 13.3514, -57.9366 )
+texture = ExtResource( 3 )
+
+[node name="band" type="Sprite" parent="sprites"]
+position = Vector2( -3.42344, -83.5403 )
+texture = ExtResource( 5 )
+
+[node name="skirt" type="Sprite" parent="sprites"]
+position = Vector2( -0.498505, 39.137 )
+texture = ExtResource( 7 )
