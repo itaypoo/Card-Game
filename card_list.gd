@@ -22,9 +22,10 @@ extends Node
 # Shoots lazers
 # Shoots rockets
 # Throws spider webs
-# Moves fast
-# More HP
-# Less HP
+# [v] Moves slow
+# [v] Moves fast
+# [v] More HP
+# [v] Less HP
 
 # Card Type 2 - Player modifier cards
 # -----------------------------------
