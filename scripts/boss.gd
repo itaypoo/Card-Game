@@ -2,6 +2,7 @@ extends Area2D
 
 
 var boss_hp = 100
+var speed_multiplier = 1
 
 func hurt_boss():
 	boss_hp -= 1

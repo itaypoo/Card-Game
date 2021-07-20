@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/cards/boss_cards/card_low_speed.gd" type="Script" id=1]
+
+[node name="card_low_speed" type="Node2D"]
+script = ExtResource( 1 )
