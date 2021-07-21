@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/boss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/cards/boss_cards/card_shoot_lazers.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/cards/boss_cards/card_shoot_rockets.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/cards/boss_cards/card_fire_breath.tscn" type="PackedScene" id=5]
+[ext_resource path="res://textures/coming.jpg" type="Texture" id=6]
 
 [node name="world" type="Node2D"]
+
+[node name="coming" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 357.856, 518.507 )
+texture = ExtResource( 6 )
 
 [node name="objects" type="YSort" parent="."]
 
@@ -15,11 +21,11 @@
 [node name="boss" parent="objects" instance=ExtResource( 2 )]
 position = Vector2( 1166.93, 335.161 )
 
-[node name="card_shoot_lazers" parent="." instance=ExtResource( 3 )]
+[node name="card_shoot_lazers" parent="objects" instance=ExtResource( 3 )]
 position = Vector2( 1027.84, 156 )
 
-[node name="card_shoot_rockets" parent="." instance=ExtResource( 4 )]
+[node name="card_shoot_rockets" parent="objects" instance=ExtResource( 4 )]
 position = Vector2( 1037.33, 509.777 )
 
-[node name="Area2D" parent="." instance=ExtResource( 5 )]
+[node name="Area2D" parent="objects" instance=ExtResource( 5 )]
 position = Vector2( 975.494, 328.98 )
