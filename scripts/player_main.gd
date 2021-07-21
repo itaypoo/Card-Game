@@ -25,11 +25,11 @@ func _physics_process(_delta):
 		moving = true
 	if Input.is_action_pressed("player_left"): 
 		position.x -= move_speed
-		sprites_node.scale.x = -0.6
+		sprites_node.scale.x = -0.5
 		moving = true
 	elif Input.is_action_pressed("player_right"): 
 		position.x += move_speed
-		sprites_node.scale.x = 0.6
+		sprites_node.scale.x = 0.5
 		moving = true
 	
 	if moving: pass
@@ -56,4 +56,4 @@ func spawn_bullet():
 	var bullet_inst = player_bullet.instance()
 	bullet_inst.position = self.position
 	get_parent().add_child(bullet_inst)
-	bullet_inst.position.x += $coll_shape.shape.extents.x + bullet_inst.coll_shape.shape.extents.x
+	bullet_inst.position.x += 30
