@@ -46,14 +46,17 @@ func _physics_process(_delta):
 		spawn_bullet()
 		shoot_cd = 10
 	shoot_cd -= 1
-	if invis > 0: invis -= 1
+	if invis > 0: 
+		invis -= 1
+		sprites_node.material.set_shader_param("flash_modifier", 0.8)
+	else: sprites_node.material.set_shader_param("flash_modifier", 0)
 
 ##############################################################################
 
 func hurt_player(hp):
 	if invis <= 0:
 		player_hp -= hp
-		invis = 20
+		invis = 30
 		print(player_hp)
 		if player_hp <= 0:
 			queue_free()
