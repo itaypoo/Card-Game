@@ -1,18 +1,55 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://textures/cards/boss_cards/fire_dispenser.png" type="Texture" id=1]
 [ext_resource path="res://scripts/cards/boss_cards/card_fire_breath.gd" type="Script" id=2]
+[ext_resource path="res://textures/cards/boss_cards/fire_particle.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 152.257, 21.7483 )
+extents = Vector2( 109.658, 27.0934 )
 
-[node name="Area2D" type="Area2D"]
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.395349, 1 )
+colors = PoolColorArray( 0.849121, 0.644113, 0.122725, 1, 0.73584, 0.0804825, 0.0804825, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 6.04545, 0, 0, Vector2( 0.289474, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.845455 ), -0.460606, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_rotate_y = true
+flag_disable_z = true
+spread = 10.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 300.0
+angular_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 100.0
+scale = 0.5
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 3 )
+
+[node name="card_fire_breath" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="coll_shape" type="CollisionShape2D" parent="."]
+position = Vector2( -30, 0 )
 shape = SubResource( 1 )
 
-[node name="sprite" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
-scale = Vector2( 4.75706, 0.682917 )
+[node name="fire_particle" type="Particles2D" parent="."]
+position = Vector2( -116, 0 )
+rotation = 0.000123019
+amount = 30
+local_coords = false
+process_material = SubResource( 4 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -134.936, 0.561871 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )

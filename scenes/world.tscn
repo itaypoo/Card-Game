@@ -13,13 +13,13 @@
 [node name="player" parent="objects" instance=ExtResource( 1 )]
 
 [node name="boss" parent="objects" instance=ExtResource( 2 )]
-position = Vector2( 805, 305 )
+position = Vector2( 1166.93, 335.161 )
 
 [node name="card_shoot_lazers" parent="." instance=ExtResource( 3 )]
-position = Vector2( 681, 156 )
+position = Vector2( 1027.84, 156 )
 
 [node name="card_shoot_rockets" parent="." instance=ExtResource( 4 )]
-position = Vector2( 686, 356 )
+position = Vector2( 1037.33, 509.777 )
 
 [node name="Area2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 586, 265 )
+position = Vector2( 975.494, 328.98 )
