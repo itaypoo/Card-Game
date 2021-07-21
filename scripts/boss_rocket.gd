@@ -16,7 +16,7 @@ func _ready():
 func _physics_process(_delta):
 	position += vec_to_player
 	lifetime += 1
-	if lifetime > 500: queue_free()
+	if lifetime > 700: queue_free()
 
 ########################################################################
 
