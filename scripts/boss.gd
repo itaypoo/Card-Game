@@ -1,6 +1,5 @@
 extends Area2D
 
-
 var boss_hp = 100
 var speed_multiplier = 1
 
@@ -9,3 +8,8 @@ func hurt_boss():
 	print(boss_hp)
 	if boss_hp <= 0:
 		queue_free()
+
+func added_card(id):
+	var card = load(global.card_list[id])
+	card = card.instance()
+	$boss_cards.add_child(card)

@@ -2,5 +2,7 @@
 
 [ext_resource path="res://scripts/global.gd" type="Script" id=1]
 
-[node name="global" type="Node2D"]
+[node name="global" type="Node2D" groups=[
+"add_card_notif",
+]]
 script = ExtResource( 1 )
