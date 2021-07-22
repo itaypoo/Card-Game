@@ -9,6 +9,7 @@ var active_cards = []
 
 # Card ID : Card Path
 var card_list = {
+	12: "res://scenes/cards/boss_cards/card_minion_spawner.tscn",
 	22: "res://scenes/cards/boss_cards/card_fire_breath.tscn",
 	32: "res://scenes/cards/boss_cards/card_shoot_lazers.tscn",
 	42: "res://scenes/cards/boss_cards/card_shoot_rockets.tscn",

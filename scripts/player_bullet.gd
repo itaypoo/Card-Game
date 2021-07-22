@@ -19,3 +19,6 @@ func _on_player_bullet_area_entered(area):
 	if area.is_in_group("boss"):
 		area.hurt_boss()
 		queue_free()
+	if area.is_in_group("minion"):
+		area.hurt_minion()
+		queue_free()
