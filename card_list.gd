@@ -21,7 +21,7 @@ extends Node
 # [v] Breaths fire (ID 22)
 # [v] Shoots lazers (ID 32)
 # [v] Shoots rockets (ID 42)
-# Throws spider webs (ID 52)
+# [v] Throws spider webs (ID 52)
 # [v] Moves slow (ID 62)
 # [v] Moves fast (ID 72)
 # [v] More HP (ID 82)
