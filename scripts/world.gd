@@ -28,3 +28,4 @@ func added_card(id):
 
 func _physics_process(_delta):
 	for child in boss_cards.get_children(): child.offset += 1
+	boss_cards.position = global.boss_pos
