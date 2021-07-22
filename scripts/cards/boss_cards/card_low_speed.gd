@@ -2,5 +2,5 @@ extends Node2D
 
 
 func _ready():
-	get_parent().speed_multiplier = 0.5
+	get_tree().call_group("boss", "set_speed", 0.5)
 	queue_free()

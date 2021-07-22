@@ -16,3 +16,10 @@ func added_card(id):
 	var card = load(global.card_list[id])
 	card = card.instance()
 	$boss_cards.add_child(card)
+	
+	
+func add_hp(hp):
+	boss_hp += hp
+
+func set_speed(speed):
+	speed_multiplier = speed

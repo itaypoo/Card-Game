@@ -14,3 +14,21 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+textures/cards/boss_cards/rocket_pad.png.import
+textures/cards/boss_cards/rocket.png.import
+textures/cards/boss_cards/lazer_gun_balls3.png.import
+textures/cards/boss_cards/lazer_gun_balls2.png.import
+textures/cards/boss_cards/lazer_gun_balls.png.import
+textures/cards/boss_cards/lazer_gun.png.import
+textures/cards/boss_cards/lazer.png.import
+textures/cards/boss_cards/fire_particle.png.import
+textures/cards/boss_cards/fire_dispenser.png.import
+textures/cards/boss_cards/fire_dispenser.png.import
+textures/cards/boss_cards/fire_particle.png.import
+textures/cards/boss_cards/lazer.png.import
+textures/cards/boss_cards/lazer_gun.png.import
+textures/cards/boss_cards/lazer_gun_balls.png.import
+textures/cards/boss_cards/lazer_gun_balls2.png.import
+textures/cards/boss_cards/lazer_gun_balls3.png.import
+textures/cards/boss_cards/rocket.png.import
+textures/cards/boss_cards/rocket_pad.png.import
