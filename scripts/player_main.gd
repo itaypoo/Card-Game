@@ -13,6 +13,8 @@ var invis = 0
 
 var moving = false
 
+var is_slow = false
+
 func _ready():
 	$sprites/leg_left.frame = global.current_player - 1
 	$sprites/leg_right.frame = global.current_player - 1
@@ -41,8 +43,11 @@ func _physics_process(_delta):
 		sprites_node.scale.x = 0.5
 		moving = true
 	
-	if moving: 
-		walk_anim.play("run")
+	if moving:
+		var speed = 1.0
+		if is_slow:
+			speed = 0.35
+		walk_anim.play("run", -1, speed)
 		if sprites_node.scale.x == 0.5: sprites_node.rotation_degrees = 6
 		else: sprites_node.rotation_degrees = -6
 	else: walk_anim.play("ready")
@@ -75,3 +80,10 @@ func spawn_bullet():
 	var bullet_inst = player_bullet.instance()
 	bullet_inst.position = position + Vector2(-100, 0).rotated((global_position - get_global_mouse_position()).angle())
 	get_parent().add_child(bullet_inst)
+
+##############################################################################
+
+func set_speed(speed, is_slow):
+	move_speed = speed
+	self.is_slow = is_slow
+	

@@ -1,6 +1,6 @@
 extends Node2D
 
-var web_bullet = preload("res://scenes/boss_rocket.tscn")
+var web_bullet = preload("res://scenes/boss_web.tscn")
 
 func _physics_process(_delta):
 	look_at(global.player_pos)
