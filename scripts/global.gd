@@ -19,6 +19,7 @@ var card_list = {
 	82: "res://scenes/cards/boss_cards/card_more_hp.tscn",
 	92: "res://scenes/cards/boss_cards/card_less_hp.tscn",
 	14: "res://scenes/cards/global_cards/card_goat_pics.tscn",
+	24: "res://scenes/cards/global_cards/card_pig.tscn",
 	34: "res://scenes/cards/global_cards/card_drugs.tscn",
 	44: "res://scenes/cards/global_cards/card_pixelated.tscn"
 }
