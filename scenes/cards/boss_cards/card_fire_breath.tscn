@@ -14,13 +14,13 @@ colors = PoolColorArray( 0.849121, 0.644113, 0.122725, 1, 0.73584, 0.0804825, 0.
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 0 ), 0.0, 6.04545, 0, 0, Vector2( 0.289474, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.845455 ), -0.460606, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=6]
 flag_rotate_y = true
 flag_disable_z = true
 spread = 10.0
@@ -31,25 +31,25 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 100.0
 scale = 0.5
-scale_curve = SubResource( 6 )
+scale_curve = SubResource( 5 )
 color_ramp = SubResource( 3 )
 
 [node name="card_fire_breath" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="coll_shape" type="CollisionShape2D" parent="."]
-position = Vector2( -30, 0 )
+position = Vector2( 109, 0 )
 shape = SubResource( 1 )
 
 [node name="fire_particle" type="Particles2D" parent="."]
-position = Vector2( -116, 0 )
+position = Vector2( 23, 0 )
 rotation = 0.000123019
 amount = 30
 local_coords = false
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( -134.936, 0.561871 )
+position = Vector2( 4.064, 0.561871 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )

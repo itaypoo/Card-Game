@@ -5,9 +5,6 @@ var current_player = 3
 
 var active_cards = []
 
-func added_card(id):
-	active_cards.append(id)
-
 # Card ID : Card Path
 var card_list = {
 	22: "res://scenes/cards/boss_cards/card_fire_breath.tscn",

@@ -1,17 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/boss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/card_inputer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/world.gd" type="Script" id=4]
 
-[node name="world" type="Node2D"]
+[node name="world" type="Node2D" groups=[
+"world",
+]]
+script = ExtResource( 4 )
 
 [node name="card_inputer" parent="." instance=ExtResource( 3 )]
 
-[node name="objects" type="YSort" parent="."]
+[node name="objects" type="YSort" parent="." groups=[
+"objects",
+]]
 
 [node name="player" parent="objects" instance=ExtResource( 1 )]
 position = Vector2( 100, 360 )
 
 [node name="boss" parent="objects" instance=ExtResource( 2 )]
 position = Vector2( 1166.93, 335.161 )
+
+[node name="boss_cards" type="Path2D" parent="."]
+position = Vector2( 1167.8, 334.167 )
+curve = null
+
+[node name="PathFollow2D" type="PathFollow2D" parent="boss_cards"]

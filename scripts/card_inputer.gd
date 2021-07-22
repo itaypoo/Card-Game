@@ -25,7 +25,8 @@ func _input(event):
 			
 			if Input.is_action_just_pressed("enter"): 
 				if global.card_list.has(input):
-					get_tree().call_group("add_card_notif", "added_card", input)
+					get_tree().call_group("world", "added_card", input)
+					global.active_cards.append(input)
 					text.text = "Added Card"
 				else:
 					text.text = "Invalid Card ID"
