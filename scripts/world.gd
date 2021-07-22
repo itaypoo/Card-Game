@@ -18,6 +18,7 @@ func _ready():
 
 func added_card(id):
 	if (id % 10) == 2:
+		# Boss Card
 		var pathfollow = PathFollow2D.new()
 		randomize()
 		pathfollow.offset = rand_range(0, curvelength)
@@ -26,6 +27,7 @@ func added_card(id):
 		pathfollow.add_child(card)
 		boss_cards.add_child(pathfollow)
 	elif (id % 10) == 4:
+		# Global Card
 		var card = load(global.card_list[id])
 		card = card.instance()
 		$global_cards.add_child(card)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float size_x = 0.004;
+uniform float size_y = 0.004;
+
+void fragment() {
+	vec2 uv = SCREEN_UV;
+	uv -= mod(uv, vec2(size_x, size_y));
+
+	COLOR.rgb = textureLod(SCREEN_TEXTURE, uv, 0.0).rgb;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/size_x = 0.004
+shader_param/size_y = 0.004
+
+[node name="card_pixelate" type="ColorRect"]
+material = SubResource( 2 )
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
