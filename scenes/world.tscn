@@ -37,3 +37,5 @@ curve = null
 [node name="topground" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
 texture = ExtResource( 5 )
+
+[node name="global_cards" type="Node2D" parent="."]

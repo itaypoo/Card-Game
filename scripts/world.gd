@@ -17,14 +17,18 @@ func _ready():
 	boss_cards.curve = newcurve
 
 func added_card(id):
-	print("hi")
-	var pathfollow = PathFollow2D.new()
-	randomize()
-	pathfollow.offset = rand_range(0, curvelength)
-	var card = load(global.card_list[id])
-	card = card.instance()
-	pathfollow.add_child(card)
-	boss_cards.add_child(pathfollow)
+	if (id % 10) == 2:
+		var pathfollow = PathFollow2D.new()
+		randomize()
+		pathfollow.offset = rand_range(0, curvelength)
+		var card = load(global.card_list[id])
+		card = card.instance()
+		pathfollow.add_child(card)
+		boss_cards.add_child(pathfollow)
+	elif (id % 10) == 4:
+		var card = load(global.card_list[id])
+		card = card.instance()
+		$global_cards.add_child(card)
 
 func _physics_process(_delta):
 	for child in boss_cards.get_children(): child.offset += 1

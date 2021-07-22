@@ -17,5 +17,6 @@ var card_list = {
 	62: "res://scenes/cards/boss_cards/card_low_speed.tscn",
 	72: "res://scenes/cards/boss_cards/card_high_speed.tscn",
 	82: "res://scenes/cards/boss_cards/card_more_hp.tscn",
-	92: "res://scenes/cards/boss_cards/card_less_hp.tscn"
+	92: "res://scenes/cards/boss_cards/card_less_hp.tscn",
+	14: "res://scenes/cards/global_cards/card_goat_pics.tscn"
 }
