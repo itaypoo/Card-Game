@@ -18,23 +18,22 @@ func _physics_process(_delta):
 		queue_free()
 	if not kill:
 		position.y += 3
-		if lifetime == 0:
+		lifetime -= 1
+		if lifetime > 0:
+			for area in get_overlapping_areas():
+				if area.is_in_group("player"):
+					boom()
+		elif lifetime == 0:
 			boom()
-		elif lifetime > 0:
-			print(lifetime)
-			lifetime -= 1
-		for area in get_overlapping_areas():
-			if area.is_in_group("player"):
-				boom()
+		
 
 func boom():
 	$circle_coll.disabled = false
-	print('test')
+	print('')
 	$Timer.start(0.1)
 
 
 func _on_Timer_timeout():
-	print('asd')
 	for area in get_overlapping_areas():
 		if area.is_in_group("player"):
 			area.hurt_player(1)

@@ -4,16 +4,13 @@ var pig = preload("res://scenes/global_pig.tscn")
 
 var spawn_cd = 180
 
-func _ready():
-	spawn_pig()
-	
-#func _physics_process(_delta):
-#	if spawn_cd > 0:
-#		spawn_cd -= 1
-#	else:
-#		spawn_pig()
-#		randomize()
-#		spawn_cd = rand_range(60, 300)
+func _physics_process(_delta):
+	if spawn_cd > 0:
+		spawn_cd -= 1
+	else:
+		spawn_pig()
+		randomize()
+		spawn_cd = rand_range(60, 300)
 
 func spawn_pig():
 	var pig_inst = pig.instance()
