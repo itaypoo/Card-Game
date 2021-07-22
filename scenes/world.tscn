@@ -1,16 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/boss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/card_inputer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/world.gd" type="Script" id=4]
+[ext_resource path="res://textures/background_top.png" type="Texture" id=5]
+[ext_resource path="res://textures/background.png" type="Texture" id=6]
 
 [node name="world" type="Node2D" groups=[
 "world",
 ]]
 script = ExtResource( 4 )
 
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+z_index = -2
+texture = ExtResource( 6 )
+
 [node name="card_inputer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, 39 )
 
 [node name="objects" type="YSort" parent="." groups=[
 "objects",
@@ -26,4 +34,6 @@ position = Vector2( 1166.93, 335.161 )
 position = Vector2( 1167.8, 334.167 )
 curve = null
 
-[node name="PathFollow2D" type="PathFollow2D" parent="boss_cards"]
+[node name="topground" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 5 )

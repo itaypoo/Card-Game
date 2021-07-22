@@ -1,5 +1,6 @@
 extends Area2D
 
+onready var slow_particle = $slow_particle
 onready var sprites_node = $sprites
 onready var walk_anim = $walk_anim
 onready var gun = $gun
@@ -63,6 +64,7 @@ func _physics_process(_delta):
 	
 	gun.position = Vector2(-60, 0).rotated((position - get_global_mouse_position()).angle())
 	gun.look_at(get_global_mouse_position())
+	slow_particle.emitting = is_slow
 
 ##############################################################################
 
