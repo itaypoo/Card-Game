@@ -1,7 +1,8 @@
 extends Area2D
 
-onready var walk_anim = $walk_anim
 onready var sprites_node = $sprites
+onready var walk_anim = $walk_anim
+onready var gun = $gun
 
 var player_bullet = preload("res://scenes/player_bullet.tscn")
 
@@ -17,6 +18,7 @@ func _ready():
 	$sprites/leg_right.frame = global.current_player - 1
 	$sprites/head.frame = global.current_player - 1
 	$sprites/body.frame = global.current_player - 1
+	$gun/hand.frame = global.current_player - 1
 
 ##############################################################################
 
@@ -32,14 +34,17 @@ func _physics_process(_delta):
 		moving = true
 	if Input.is_action_pressed("player_left"): 
 		position.x -= move_speed
-		self.scale.x = -1
+		sprites_node.scale.x = -0.5
 		moving = true
 	elif Input.is_action_pressed("player_right"): 
 		position.x += move_speed
-		self.scale.x = 1
+		sprites_node.scale.x = 0.5
 		moving = true
 	
-	if moving: walk_anim.play("run")
+	if moving: 
+		walk_anim.play("run")
+		if sprites_node.scale.x == 0.5: sprites_node.rotation_degrees = 6
+		else: sprites_node.rotation_degrees = -6
 	else: walk_anim.play("ready")
 	
 	if shoot_cd <= 0 and Input.is_action_pressed("player_shoot"): 
@@ -50,6 +55,9 @@ func _physics_process(_delta):
 		invis -= 1
 		sprites_node.material.set_shader_param("flash_modifier", 0.8)
 	else: sprites_node.material.set_shader_param("flash_modifier", 0)
+	
+	gun.position = Vector2(-60, 0).rotated((position - get_global_mouse_position()).angle())
+	gun.look_at(get_global_mouse_position())
 
 ##############################################################################
 
@@ -65,6 +73,5 @@ func hurt_player(hp):
 
 func spawn_bullet():
 	var bullet_inst = player_bullet.instance()
-	bullet_inst.position = self.position
+	bullet_inst.position = position + Vector2(-100, 0).rotated((global_position - get_global_mouse_position()).angle())
 	get_parent().add_child(bullet_inst)
-	bullet_inst.position.x += 60

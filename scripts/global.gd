@@ -1,7 +1,7 @@
 extends Node2D
 
 var player_pos = Vector2.ZERO
-var current_player = 3
+var current_player = 1
 
 var active_cards = []
 
