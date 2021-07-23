@@ -1,34 +1,283 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://textures/cards/global_cards/pig_body.png" type="Texture" id=1]
 [ext_resource path="res://scripts/global_pig.gd" type="Script" id=2]
+[ext_resource path="res://textures/cards/global_cards/pig_head.png" type="Texture" id=3]
+[ext_resource path="res://textures/cards/global_cards/pig_body2.png" type="Texture" id=4]
+[ext_resource path="res://textures/cards/global_cards/pig_spark.png" type="Texture" id=5]
+[ext_resource path="res://textures/cards/global_cards/pig_explosion_particle.png" type="Texture" id=6]
+[ext_resource path="res://textures/cards/global_cards/pig_explosion_star.png" type="Texture" id=7]
+[ext_resource path="res://textures/cards/global_cards/pig_explosion_circle.png" type="Texture" id=8]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 radius = 100.0
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 30, 30.3434 )
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 32.5356
+height = 46.4878
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.751938, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_align_y = true
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 500.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+color_ramp = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 15.6836, 0, 0, Vector2( 0.171053, 0.970455 ), -1.11861, -1.11861, 0, 0, Vector2( 0.782895, 0.0159091 ), -2.55636, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale_curve = SubResource( 11 )
+color = Color( 0.882353, 0.882353, 0.882353, 1 )
+
+[sub_resource type="Gradient" id=16]
+offsets = PoolRealArray( 0, 0.24031, 0.48062, 0.75969 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
+
+[sub_resource type="Curve" id=18]
+max_value = 1.35
+_data = [ Vector2( 0, 0 ), 0.0, 8.99046, 0, 0, Vector2( 0.315789, 1.03551 ), 0.0, 0.0, 0, 0, Vector2( 0.782895, 0.0536932 ), -4.1895, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=20]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.35
+scale_curve = SubResource( 19 )
+color_ramp = SubResource( 17 )
+
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.108527, 0.255814, 0.604651, 0.899225 )
+colors = PoolColorArray( 1, 0.94841, 0.730469, 1, 1, 0.963501, 0.28125, 1, 1, 0.610809, 0.0859375, 1, 1, 0.152344, 0, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2000.0
+initial_velocity_random = 0.7
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+color_ramp = SubResource( 14 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "fall"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprites:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ -10.0, 10.0, -10.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "land"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprites:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprites:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.25, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.15, 0.15 ), Vector2( 0.18, 0.12 ), Vector2( 0.19, 0.12 ), Vector2( 0.13, 0.17 ), Vector2( 0.15, 0.15 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprites:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.25, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 15 ), Vector2( 0, 17 ), Vector2( 0, -6 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sprites/body:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 4 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("sprites/spark_particle:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("explosion_star:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("explosion_smoke:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("explosion_circle:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="global_pig" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="circle_coll" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+scale = Vector2( 1.00191, 1.01727 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="coll_shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
-
-[node name="sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+position = Vector2( 0, -8 )
+shape = SubResource( 4 )
 
 [node name="coll_timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.6
 one_shot = true
 
 [node name="death_timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="sprites" type="Node2D" parent="."]
+scale = Vector2( 0.15, 0.15 )
+
+[node name="body" type="Sprite" parent="sprites"]
+position = Vector2( 0, 120 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 4 )
+
+[node name="head" type="Sprite" parent="sprites"]
+position = Vector2( 0, -200 )
+texture = ExtResource( 3 )
+
+[node name="spark_particle" type="Particles2D" parent="sprites"]
+position = Vector2( 138.467, 43.4843 )
+rotation = 0.194455
+emitting = false
+amount = 20
+process_material = SubResource( 9 )
+texture = ExtResource( 5 )
+
+[node name="explosion_star" type="Particles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="explosion_circle" type="Particles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+process_material = SubResource( 20 )
+texture = ExtResource( 8 )
+
+[node name="explosion_smoke" type="Particles2D" parent="."]
+scale = Vector2( 0.15, 0.15 )
+emitting = false
+amount = 70
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource( 15 )
+texture = ExtResource( 6 )
+
+[node name="main_anim" type="AnimationPlayer" parent="."]
+autoplay = "fall"
+anims/fall = SubResource( 5 )
+anims/land = SubResource( 6 )
 
 [connection signal="timeout" from="coll_timer" to="." method="_on_coll_timer_timeout"]
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

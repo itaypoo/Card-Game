@@ -23,14 +23,15 @@ func _physics_process(_delta):
 
 func expload():
 	dead = true
-	$sprite.visible = false
 	$circle_coll.disabled = false
 	$coll_timer.start()
+	$main_anim.play("land")
 
 
 func _on_coll_timer_timeout():
 	for area in get_overlapping_areas(): if area.is_in_group("player"):
 		area.hurt_player(1)
+	$sprites.visible = false
 	$death_timer.start()
 
 
