@@ -3,7 +3,7 @@ extends Node2D
 var player_pos = Vector2.ZERO
 var boss_pos = Vector2.ZERO
 
-var current_player = 4
+var current_player = 3
 
 var active_cards = []
 
@@ -24,7 +24,9 @@ var card_list = {
 	24: "res://scenes/cards/global_cards/card_pig.tscn",
 	34: "res://scenes/cards/global_cards/card_drugs.tscn",
 	44: "res://scenes/cards/global_cards/card_pixelated.tscn",
-	64: "res://scenes/cards/global_cards/card_lightning.tscn"
+	54: "res://scenes/cards/global_cards/card_wind.tscn",
+	64: "res://scenes/cards/global_cards/card_lightning.tscn",
+	84: "res://scenes/cards/global_cards/card_player_clone.tscn"
 }
 
 ###############################################################################

@@ -94,3 +94,6 @@ func set_speed(speed, is_slow):
 	
 func set_pos(pos):
 	position = pos
+
+func add_pos(pos):
+	position += pos

@@ -15,23 +15,23 @@
 [ext_resource path="res://textures/player/sticky_particle.png" type="Texture" id=13]
 [ext_resource path="res://textures/cards/global_cards/pig_explosion_star.png" type="Texture" id=14]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 10 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 19.6091
 height = 60.3986
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.155039, 0.844961, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 20, 50, 1 )
 flag_disable_z = true
@@ -39,9 +39,9 @@ gravity = Vector3( 0, 10, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.5
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 4 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprites/leg_left:position")
@@ -380,7 +380,7 @@ tracks/27/keys = {
 "values": [ ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 step = 0.01
@@ -493,7 +493,7 @@ tracks/8/keys = {
 "values": [ Vector2( 0, -9.33334 ), Vector2( 0, -11 ), Vector2( 0, -9.33334 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 0.5
 loop = true
 step = 0.05
@@ -522,7 +522,7 @@ tracks/1/keys = {
 "values": [ 0.4, 0.8, 0.4 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/flash_modifier")
@@ -549,7 +549,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprites/hurt:visible")
@@ -579,14 +579,14 @@ tracks/1/keys = {
 [node name="player" type="Area2D" groups=[
 "player",
 ]]
-material = SubResource( 2 )
+material = SubResource( 1 )
 position = Vector2( 2, 0 )
 script = ExtResource( 2 )
 move_speed = 6
 
 [node name="coll_shape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="sprites" type="Node2D" parent="."]
 use_parent_material = true
@@ -666,17 +666,17 @@ emitting = false
 amount = 3
 lifetime = 1.5
 local_coords = false
-process_material = SubResource( 6 )
+process_material = SubResource( 5 )
 texture = ExtResource( 13 )
 
 [node name="walk_anim" type="AnimationPlayer" parent="."]
-anims/ready = SubResource( 7 )
-anims/run = SubResource( 8 )
+anims/ready = SubResource( 6 )
+anims/run = SubResource( 7 )
 
 [node name="invis_anim" type="AnimationPlayer" parent="."]
 autoplay = "ready"
-anims/invis = SubResource( 9 )
-anims/ready = SubResource( 10 )
+anims/invis = SubResource( 8 )
+anims/ready = SubResource( 9 )
 
 [node name="hurt_anim" type="AnimationPlayer" parent="."]
-anims/hurt = SubResource( 11 )
+anims/hurt = SubResource( 10 )
