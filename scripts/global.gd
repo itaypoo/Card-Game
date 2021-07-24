@@ -26,6 +26,7 @@ var card_list = {
 	44: "res://scenes/cards/global_cards/card_pixelated.tscn",
 	54: "res://scenes/cards/global_cards/card_wind.tscn",
 	64: "res://scenes/cards/global_cards/card_lightning.tscn",
+	74: "res://scenes/cards/global_cards/card_glitchy.tscn",
 	84: "res://scenes/cards/global_cards/card_player_clone.tscn"
 }
 
