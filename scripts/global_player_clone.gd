@@ -1,10 +1,5 @@
 extends Node2D
 
-onready var slow_particle = $slow_particle
-onready var invis_anim = $invis_anim
-onready var sprites_node = $sprites
-onready var walk_anim = $walk_anim
-
 var clone_cd = 60
 
 func _ready():
