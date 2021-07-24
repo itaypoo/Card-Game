@@ -28,7 +28,7 @@ position = Vector2( 40, 39 )
 position = Vector2( 100, 360 )
 
 [node name="boss" parent="objects" instance=ExtResource( 2 )]
-position = Vector2( 1166.93, 335.161 )
+position = Vector2( 1090.65, 331.983 )
 
 [node name="boss_cards" type="Path2D" parent="."]
 position = Vector2( 1167.8, 334.167 )

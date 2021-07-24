@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://textures/player/head_sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player_main.gd" type="Script" id=2]
@@ -13,17 +13,35 @@
 [ext_resource path="res://textures/player/hnad_sheet.png" type="Texture" id=11]
 [ext_resource path="res://textures/player/gun.png" type="Texture" id=12]
 [ext_resource path="res://textures/player/sticky_particle.png" type="Texture" id=13]
-
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 19.6091
-height = 60.3986
+[ext_resource path="res://textures/cards/global_cards/pig_explosion_star.png" type="Texture" id=14]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 10 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 19.6091
+height = 60.3986
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.155039, 0.844961, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 20, 50, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 10, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+color_ramp = SubResource( 5 )
+
+[sub_resource type="Animation" id=7]
 length = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprites/leg_left:position")
@@ -362,7 +380,7 @@ tracks/27/keys = {
 "values": [ ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=8]
 length = 0.4
 loop = true
 step = 0.01
@@ -475,35 +493,103 @@ tracks/8/keys = {
 "values": [ Vector2( 0, -9.33334 ), Vector2( 0, -11 ), Vector2( 0, -9.33334 ) ]
 }
 
-[sub_resource type="Gradient" id=5]
-offsets = PoolRealArray( 0, 0.155039, 0.844961, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+[sub_resource type="Animation" id=9]
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/flash_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/flash_modifier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 0, 0, 0 ),
+"update": 0,
+"values": [ 0.4, 0.8, 0.4 ]
+}
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="Animation" id=10]
+length = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="ParticlesMaterial" id=7]
-emission_shape = 2
-emission_box_extents = Vector3( 20, 50, 1 )
-flag_disable_z = true
-gravity = Vector3( 0, 10, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.5
-color_ramp = SubResource( 6 )
+[sub_resource type="Animation" id=11]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprites/hurt:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprites/hurt:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 0.5, 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1.6, 1.6 ), Vector2( 1.65, 1.65 ), Vector2( 0, 0 ) ]
+}
 
 [node name="player" type="Area2D" groups=[
 "player",
 ]]
+material = SubResource( 2 )
+position = Vector2( 2, 0 )
 script = ExtResource( 2 )
 move_speed = 6
 
 [node name="coll_shape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="sprites" type="Node2D" parent="."]
-material = SubResource( 2 )
+use_parent_material = true
 scale = Vector2( 0.5, 0.5 )
 
 [node name="leg_left" type="Sprite" parent="sprites"]
@@ -553,26 +639,44 @@ use_parent_material = true
 position = Vector2( -1.83333, -9.66667 )
 texture = ExtResource( 5 )
 
+[node name="hurt" type="Sprite" parent="sprites"]
+visible = false
+rotation = 0.785398
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 14 )
+
 [node name="gun" type="Node2D" parent="."]
+use_parent_material = true
 position = Vector2( 33.9411, -12.7279 )
 
 [node name="hand" type="Sprite" parent="gun"]
+use_parent_material = true
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 11 )
 hframes = 4
 
 [node name="gun" type="Sprite" parent="gun"]
+use_parent_material = true
 position = Vector2( 15, 0 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 12 )
 
-[node name="walk_anim" type="AnimationPlayer" parent="."]
-anims/ready = SubResource( 3 )
-anims/run = SubResource( 4 )
-
 [node name="slow_particle" type="Particles2D" parent="."]
+emitting = false
 amount = 3
 lifetime = 1.5
 local_coords = false
-process_material = SubResource( 7 )
+process_material = SubResource( 6 )
 texture = ExtResource( 13 )
+
+[node name="walk_anim" type="AnimationPlayer" parent="."]
+anims/ready = SubResource( 7 )
+anims/run = SubResource( 8 )
+
+[node name="invis_anim" type="AnimationPlayer" parent="."]
+autoplay = "ready"
+anims/invis = SubResource( 9 )
+anims/ready = SubResource( 10 )
+
+[node name="hurt_anim" type="AnimationPlayer" parent="."]
+anims/hurt = SubResource( 11 )

@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var slow_particle = $slow_particle
+onready var invis_anim = $invis_anim
 onready var sprites_node = $sprites
 onready var walk_anim = $walk_anim
 onready var gun = $gun
@@ -59,8 +60,8 @@ func _physics_process(_delta):
 	shoot_cd -= 1
 	if invis > 0: 
 		invis -= 1
-		sprites_node.material.set_shader_param("flash_modifier", 0.8)
-	else: sprites_node.material.set_shader_param("flash_modifier", 0)
+		invis_anim.play("invis", -1, 2)
+	else: invis_anim.play("ready")
 	
 	gun.position = Vector2(-60, 0).rotated((position - get_global_mouse_position()).angle())
 	gun.look_at(get_global_mouse_position())
@@ -72,7 +73,9 @@ func hurt_player(hp):
 	if invis <= 0:
 		player_hp -= hp
 		invis = 30
-		print(player_hp)
+		$hurt_anim.play("hurt")
+		global.set_hitstun(4)
+		global.set_screenshake(5)
 		if player_hp <= 0:
 			queue_free()
 

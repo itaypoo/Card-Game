@@ -7,6 +7,8 @@ var current_player = 4
 
 var active_cards = []
 
+###############################################################################
+
 # Card ID : Card Path
 var card_list = {
 	12: "res://scenes/cards/boss_cards/card_minion_spawner.tscn",
@@ -23,3 +25,34 @@ var card_list = {
 	34: "res://scenes/cards/global_cards/card_drugs.tscn",
 	44: "res://scenes/cards/global_cards/card_pixelated.tscn"
 }
+
+###############################################################################
+
+onready var camera  = $camera
+
+var screenshake = 0 
+var hitstun = 0
+
+###############################################################################
+
+func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+
+func _physics_process(_delta):
+	if hitstun > 0: 
+		get_tree().paused = true
+		hitstun -= 1
+	else: get_tree().paused = false
+	
+	camera.position = Vector2(640, 360)
+	if screenshake > 0:
+		camera.position += Vector2(clamp(screenshake, 0, 30), 0).rotated(deg2rad(rand_range(0, 360)))
+		screenshake -= 1
+
+###############################################################################
+
+func set_hitstun(amount):
+	if amount > hitstun: hitstun = amount
+
+func set_screenshake(amount):
+	if amount > screenshake: screenshake = amount
