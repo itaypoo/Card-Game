@@ -17,6 +17,13 @@ var moving = false
 
 var is_slow = false
 
+var gun_cd = 10
+var gun_speed = 20
+var gun_damage = 1
+var gun_bullet_size = 1
+var gun_amount = 1
+var gun_auto_aim = false
+
 func _ready():
 	$sprites/leg_left.frame = global.current_player - 1
 	$sprites/leg_right.frame = global.current_player - 1
@@ -30,7 +37,7 @@ func _physics_process(_delta):
 	global.player_pos = self.position
 	moving = false
 	
-	if Input.is_action_pressed("player_up"): 
+	if Input.is_action_pressed("player_up"):
 		position.y -= move_speed
 		moving = true
 	elif Input.is_action_pressed("player_down"): 
@@ -46,17 +53,17 @@ func _physics_process(_delta):
 		moving = true
 	
 	if moving:
-		var speed = 1.0
+		var anim_speed = 1.0
 		if is_slow:
-			speed = 0.35
-		walk_anim.play("run", -1, speed)
+			anim_speed = 0.35
+		walk_anim.play("run", -1, anim_speed)
 		if sprites_node.scale.x == 0.5: sprites_node.rotation_degrees = 6
 		else: sprites_node.rotation_degrees = -6
 	else: walk_anim.play("ready")
 	
 	if shoot_cd <= 0 and Input.is_action_pressed("player_shoot"): 
 		spawn_bullet()
-		shoot_cd = 10
+		shoot_cd = gun_cd
 	shoot_cd -= 1
 	if invis > 0: 
 		invis -= 1
@@ -82,9 +89,22 @@ func hurt_player(hp):
 ##############################################################################
 
 func spawn_bullet():
-	var bullet_inst = player_bullet.instance()
-	bullet_inst.position = position + Vector2(-100, 0).rotated((global_position - get_global_mouse_position()).angle())
-	get_parent().add_child(bullet_inst)
+	for i in range(0,gun_amount):
+		print(i)
+		var bullet_inst = player_bullet.instance()
+		var y = 0
+		if not i == 0:
+			if i % 2 == 0: y = 1
+			else: y = -1
+			y = i*3*y
+		bullet_inst.position = position + Vector2(-100, y).rotated((global_position - get_global_mouse_position()).angle())
+		bullet_inst.bullet_speed = gun_speed
+		bullet_inst.bullet_damage = gun_damage
+		bullet_inst.bullet_size = gun_bullet_size
+		bullet_inst.auto_aim = gun_auto_aim
+		if i > 0: bullet_inst.main_bullet = false
+		else: bullet_inst.main_bullet = true
+		get_parent().add_child(bullet_inst)
 
 ##############################################################################
 
@@ -97,3 +117,19 @@ func set_pos(pos):
 
 func add_pos(pos):
 	position += pos
+	
+func reverse_move_speed():
+	move_speed *= -1
+	
+func add_health(hp):
+	player_hp += hp
+
+func set_weapon(cd, speed, damage, size, amount):
+	gun_cd = cd
+	gun_speed = speed
+	gun_damage = damage
+	gun_bullet_size = size
+	gun_amount = amount
+
+func set_auto_aim(auto_aim):
+	gun_auto_aim = auto_aim

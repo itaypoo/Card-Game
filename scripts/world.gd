@@ -31,6 +31,11 @@ func added_card(id):
 		var card = load(global.card_list[id])
 		card = card.instance()
 		$global_cards.add_child(card)
+	elif (id % 10) == 3:
+		# Player card
+		var card = load(global.card_list[id])
+		card = card.instance()
+		get_tree().call_group("player", "add_child", card)
 
 func _physics_process(_delta):
 	for child in boss_cards.get_children(): child.offset += 1

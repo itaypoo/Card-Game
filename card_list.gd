@@ -17,7 +17,7 @@ extends Node
 
 # Card Type 1 - Boss modifier cards
 # -----------------------------------
-# Poops out minions (ID 12)
+# [V] Poops out minions (ID 12)
 # [v] Breaths fire (ID 22)
 # [v] Shoots lazers (ID 32)
 # [v] Shoots rockets (ID 42)
@@ -29,14 +29,14 @@ extends Node
 
 # Card Type 2 - Player modifier cards
 # -----------------------------------
-# Inverted controlls (ID 13)
-# Super fucking fast (ID 23)
+# [V] Inverted controlls (ID 13)
+# [V] Super fucking fast (ID 23)
 # Is slippery (ID 33)
-# Has more HP (ID 43)
-# Shutgun (ID 53)
-# Machine Gun (ID 63)
-# Sniper rifle (ID 73)
-# Seeking bullets (ID 83)
+# [V] Has more HP (ID 43)
+# [V] Shotgun (ID 53)
+# [V] Machine Gun (ID 63)
+# [V] Sniper rifle (ID 73)
+# [V] Seeking bullets (ID 83)
 
 # Card Type 3 - Global modifier cards
 # -----------------------------------

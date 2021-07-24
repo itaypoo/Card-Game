@@ -22,8 +22,8 @@ func _physics_process(_delta):
 		moving -= 1
 		position += Vector2(-3, 0).rotated(rotation)
 			
-func hurt_minion():
-	minion_hp -= 1
+func hurt_minion(hp):
+	minion_hp -= hp
 	print('b')
 	if minion_hp <= 0:
 		queue_free()

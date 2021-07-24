@@ -6,8 +6,8 @@ var speed_multiplier = 1
 func  _physics_process(_delta):
 	global.boss_pos = global_position
 
-func hurt_boss():
-	boss_hp -= 1
+func hurt_boss(hp):
+	boss_hp -= hp
 	print(boss_hp)
 	if boss_hp <= 0:
 		queue_free()
