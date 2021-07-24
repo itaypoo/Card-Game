@@ -30,6 +30,10 @@ window/stretch/aspect="keep"
 
 enabled=PoolStringArray(  )
 
+[global]
+
+fps=false
+
 [input]
 
 player_up={
