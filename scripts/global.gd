@@ -23,7 +23,8 @@ var card_list = {
 	14: "res://scenes/cards/global_cards/card_goat_pics.tscn",
 	24: "res://scenes/cards/global_cards/card_pig.tscn",
 	34: "res://scenes/cards/global_cards/card_drugs.tscn",
-	44: "res://scenes/cards/global_cards/card_pixelated.tscn"
+	44: "res://scenes/cards/global_cards/card_pixelated.tscn",
+	64: "res://scenes/cards/global_cards/card_lightning.tscn"
 }
 
 ###############################################################################

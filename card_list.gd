@@ -41,10 +41,10 @@ extends Node
 # Card Type 3 - Global modifier cards
 # -----------------------------------
 # [v] Random pictures of goats pop up (ID 14)
-# Raining exploading pigs (ID 24)
+# [v] Raining exploading pigs (ID 24)
 # [v] On drugs // screen is colorfull (ID 34)
 # [v] Screen is pixelated (ID 44)
 # Duplicated screens (ID 54)
-# Thunder storm (ID 64)
+# [v] Thunder storm (ID 64)
 # Fast Motion (ID 74)
 # Slow Motion (ID 84)
