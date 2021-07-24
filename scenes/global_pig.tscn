@@ -9,21 +9,21 @@
 [ext_resource path="res://textures/cards/global_cards/pig_explosion_star.png" type="Texture" id=7]
 [ext_resource path="res://textures/cards/global_cards/pig_explosion_circle.png" type="Texture" id=8]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 100.0
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 32.5356
 height = 46.4878
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.751938, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=5]
 flag_align_y = true
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
@@ -31,55 +31,55 @@ initial_velocity = 500.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 1.5
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 4 )
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 0 ), 0.0, 15.6836, 0, 0, Vector2( 0.171053, 0.970455 ), -1.11861, -1.11861, 0, 0, Vector2( 0.782895, 0.0159091 ), -2.55636, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=8]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 angle = 720.0
 angle_random = 1.0
-scale_curve = SubResource( 11 )
+scale_curve = SubResource( 7 )
 color = Color( 0.882353, 0.882353, 0.882353, 1 )
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=9]
 offsets = PoolRealArray( 0, 0.24031, 0.48062, 0.75969 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=17]
-gradient = SubResource( 16 )
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
 
-[sub_resource type="Curve" id=18]
+[sub_resource type="Curve" id=11]
 max_value = 1.35
 _data = [ Vector2( 0, 0 ), 0.0, 8.99046, 0, 0, Vector2( 0.315789, 1.03551 ), 0.0, 0.0, 0, 0, Vector2( 0.782895, 0.0536932 ), -4.1895, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=19]
-curve = SubResource( 18 )
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
 
-[sub_resource type="ParticlesMaterial" id=20]
+[sub_resource type="ParticlesMaterial" id=13]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 1.35
-scale_curve = SubResource( 19 )
-color_ramp = SubResource( 17 )
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 10 )
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=14]
 offsets = PoolRealArray( 0, 0.108527, 0.255814, 0.604651, 0.899225 )
 colors = PoolColorArray( 1, 0.94841, 0.730469, 1, 1, 0.963501, 0.28125, 1, 1, 0.610809, 0.0859375, 1, 1, 0.152344, 0, 1, 1, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=14]
-gradient = SubResource( 13 )
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=15]
+[sub_resource type="ParticlesMaterial" id=16]
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
@@ -88,10 +88,9 @@ initial_velocity_random = 0.7
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 1.5
-color_ramp = SubResource( 14 )
+color_ramp = SubResource( 15 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "fall"
+[sub_resource type="Animation" id=17]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -107,8 +106,7 @@ tracks/0/keys = {
 "values": [ -10.0, 10.0, -10.0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "land"
+[sub_resource type="Animation" id=18]
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
@@ -213,12 +211,12 @@ script = ExtResource( 2 )
 
 [node name="circle_coll" type="CollisionShape2D" parent="."]
 scale = Vector2( 1.00191, 1.01727 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 disabled = true
 
 [node name="coll_shape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -8 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="coll_timer" type="Timer" parent="."]
 wait_time = 0.6
@@ -233,8 +231,7 @@ scale = Vector2( 0.15, 0.15 )
 
 [node name="body" type="Sprite" parent="sprites"]
 position = Vector2( 0, 120 )
-scale = Vector2( 1, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 
 [node name="head" type="Sprite" parent="sprites"]
 position = Vector2( 0, -200 )
@@ -245,7 +242,7 @@ position = Vector2( 138.467, 43.4843 )
 rotation = 0.194455
 emitting = false
 amount = 20
-process_material = SubResource( 9 )
+process_material = SubResource( 5 )
 texture = ExtResource( 5 )
 
 [node name="explosion_star" type="Particles2D" parent="."]
@@ -253,7 +250,7 @@ emitting = false
 amount = 1
 lifetime = 0.5
 one_shot = true
-process_material = SubResource( 12 )
+process_material = SubResource( 8 )
 texture = ExtResource( 7 )
 
 [node name="explosion_circle" type="Particles2D" parent="."]
@@ -261,7 +258,7 @@ emitting = false
 amount = 1
 lifetime = 0.5
 one_shot = true
-process_material = SubResource( 20 )
+process_material = SubResource( 13 )
 texture = ExtResource( 8 )
 
 [node name="explosion_smoke" type="Particles2D" parent="."]
@@ -271,13 +268,13 @@ amount = 70
 lifetime = 0.5
 one_shot = true
 explosiveness = 0.9
-process_material = SubResource( 15 )
+process_material = SubResource( 16 )
 texture = ExtResource( 6 )
 
 [node name="main_anim" type="AnimationPlayer" parent="."]
 autoplay = "fall"
-anims/fall = SubResource( 5 )
-anims/land = SubResource( 6 )
+anims/fall = SubResource( 17 )
+anims/land = SubResource( 18 )
 
 [connection signal="timeout" from="coll_timer" to="." method="_on_coll_timer_timeout"]
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]
