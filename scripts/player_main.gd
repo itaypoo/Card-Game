@@ -92,3 +92,5 @@ func set_speed(speed, is_slow):
 	move_speed = speed
 	self.is_slow = is_slow
 	
+func set_pos(pos):
+	position = pos
