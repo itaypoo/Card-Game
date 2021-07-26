@@ -24,6 +24,7 @@ var card_list = {
 	92: "res://scenes/cards/boss_cards/card_less_hp.tscn",
 	13: "res://scenes/cards/player_cards/card_inverted_controls.tscn",
 	23: "res://scenes/cards/player_cards/card_super_speed.tscn",
+	33: "res://scenes/cards/player_cards/card_slippery.tscn",
 	43: "res://scenes/cards/player_cards/card_more_hp.tscn",
 	53: "res://scenes/cards/player_cards/card_shotgun.tscn",
 	63: "res://scenes/cards/player_cards/card_machine_gun.tscn",

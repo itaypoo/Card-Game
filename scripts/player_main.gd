@@ -12,17 +12,20 @@ export (int) var move_speed = 5
 var shoot_cd = 0
 var player_hp = 10
 var invis = 0
+var friction = 0.5
+
+var move_vec = Vector2.ZERO
 
 var moving = false
-
 var is_slow = false
+var is_slippery = true
+var gun_auto_aim = false
 
 var gun_cd = 10
 var gun_speed = 20
 var gun_damage = 1
 var gun_bullet_size = 1
 var gun_amount = 1
-var gun_auto_aim = false
 
 func _ready():
 	$sprites/leg_left.frame = global.current_player - 1
@@ -38,19 +41,27 @@ func _physics_process(_delta):
 	moving = false
 	
 	if Input.is_action_pressed("player_up"):
-		position.y -= move_speed
+		move_vec.y = -move_speed
 		moving = true
 	elif Input.is_action_pressed("player_down"): 
-		position.y += move_speed
+		move_vec.y = move_speed
 		moving = true
 	if Input.is_action_pressed("player_left"): 
-		position.x -= move_speed
+		move_vec.x = -move_speed
 		sprites_node.scale.x = -0.5
 		moving = true
 	elif Input.is_action_pressed("player_right"): 
-		position.x += move_speed
+		move_vec.x = move_speed
 		sprites_node.scale.x = 0.5
 		moving = true
+	
+	position += move_vec
+	if abs(move_vec.x) > 0.1:
+		if move_vec.x > 0: move_vec.x -= friction
+		elif move_vec.x < 0: move_vec.x += friction
+	if abs(move_vec.y) > 0.1:
+		if move_vec.y > 0: move_vec.y -= friction
+		elif move_vec.y < 0: move_vec.y += friction
 	
 	if moving:
 		var anim_speed = 1.0

@@ -15,6 +15,10 @@ func _ready():
 	curvelength = newcurve.get_baked_length()
 	
 	boss_cards.curve = newcurve
+	
+	for child in $background_tiles.get_children():
+		child.frame = int(rand_range(0, 3))
+		print(child.frame)
 
 func added_card(id):
 	if (id % 10) == 2:
