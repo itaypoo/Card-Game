@@ -31,7 +31,7 @@ extends Node
 # -----------------------------------
 # [V] Inverted controlls (ID 13)
 # [V] Super fucking fast (ID 23)
-# Is slippery (ID 33)
+# [v] Is slippery (ID 33)
 # [V] Has more HP (ID 43)
 # [V] Shotgun (ID 53)
 # [V] Machine Gun (ID 63)

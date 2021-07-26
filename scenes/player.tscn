@@ -10,8 +10,7 @@
 [ext_resource path="res://textures/player/leg_sheet.png" type="Texture" id=8]
 [ext_resource path="res://textures/player/legbent_sheet.png" type="Texture" id=9]
 [ext_resource path="res://textures/flash_shader.shader" type="Shader" id=10]
-[ext_resource path="res://textures/player/hnad_sheet.png" type="Texture" id=11]
-[ext_resource path="res://textures/player/gun.png" type="Texture" id=12]
+[ext_resource path="res://textures/cards/player_cards/pistol_sheet.png" type="Texture" id=11]
 [ext_resource path="res://textures/player/sticky_particle.png" type="Texture" id=13]
 [ext_resource path="res://textures/cards/global_cards/pig_explosion_star.png" type="Texture" id=14]
 
@@ -576,6 +575,22 @@ tracks/1/keys = {
 "values": [ Vector2( 1.6, 1.6 ), Vector2( 1.65, 1.65 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("gun/gun:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.55, 0.55 ), Vector2( 0.45, 0.45 ) ]
+}
+
 [node name="player" type="Area2D" groups=[
 "player",
 ]]
@@ -649,17 +664,12 @@ texture = ExtResource( 14 )
 use_parent_material = true
 position = Vector2( 33.9411, -12.7279 )
 
-[node name="hand" type="Sprite" parent="gun"]
-use_parent_material = true
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 11 )
-hframes = 4
-
 [node name="gun" type="Sprite" parent="gun"]
 use_parent_material = true
-position = Vector2( 15, 0 )
-scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 12 )
+position = Vector2( 3.41832, -1.78179 )
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 11 )
+hframes = 4
 
 [node name="slow_particle" type="Particles2D" parent="."]
 emitting = false
@@ -680,3 +690,6 @@ anims/ready = SubResource( 9 )
 
 [node name="hurt_anim" type="AnimationPlayer" parent="."]
 anims/hurt = SubResource( 10 )
+
+[node name="gun_anim" type="AnimationPlayer" parent="."]
+anims/shoot = SubResource( 11 )

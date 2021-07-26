@@ -33,3 +33,6 @@ func random_pos():
 			x = 1
 		2:
 			x = -1
+	
+	$wind_particle.restart()
+	$wind_particle.rotation = (Vector2(x,y)).angle()

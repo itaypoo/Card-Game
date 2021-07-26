@@ -4,6 +4,7 @@ onready var slow_particle = $slow_particle
 onready var invis_anim = $invis_anim
 onready var sprites_node = $sprites
 onready var walk_anim = $walk_anim
+onready var gun_anim = $gun_anim
 onready var gun = $gun
 
 var player_bullet = preload("res://scenes/player_bullet.tscn")
@@ -32,7 +33,7 @@ func _ready():
 	$sprites/leg_right.frame = global.current_player - 1
 	$sprites/head.frame = global.current_player - 1
 	$sprites/body.frame = global.current_player - 1
-	$gun/hand.frame = global.current_player - 1
+	$gun/gun.frame = global.current_player - 1
 
 ##############################################################################
 
@@ -81,9 +82,13 @@ func _physics_process(_delta):
 		invis_anim.play("invis", -1, 2)
 	else: invis_anim.play("ready")
 	
-	gun.position = Vector2(-60, 0).rotated((position - get_global_mouse_position()).angle())
+	gun.position = Vector2(-70, 0).rotated((position - get_global_mouse_position()).angle())
 	gun.look_at(get_global_mouse_position())
 	slow_particle.emitting = is_slow
+	if rad2deg((position - get_global_mouse_position()).angle()) > 90 or rad2deg((position - get_global_mouse_position()).angle()) < -90:
+		gun.scale.y = 1
+	else:
+		gun.scale.y = -1
 
 ##############################################################################
 
@@ -116,6 +121,8 @@ func spawn_bullet():
 		if i > 0: bullet_inst.main_bullet = false
 		else: bullet_inst.main_bullet = true
 		get_parent().add_child(bullet_inst)
+	gun_anim.stop()
+	gun_anim.play("shoot")
 
 ##############################################################################
 
@@ -144,3 +151,7 @@ func set_weapon(cd, speed, damage, size, amount):
 
 func set_auto_aim(auto_aim):
 	gun_auto_aim = auto_aim
+
+func set_gun_texture(path):
+	$gun/gun.texture = load(path)
+
