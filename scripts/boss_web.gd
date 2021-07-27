@@ -21,9 +21,9 @@ func _physics_process(_delta):
 
 func _on_boss_web_area_entered(area):
 	if area.is_in_group("player"):
-		area.set_speed(2.5, true)
+		area.set_speed(area.move_speed/2, true)
 
 
 func _on_boss_web_area_exited(area):
 	if area.is_in_group("player"):
-		area.set_speed(7, false)
+		area.set_speed(area.default_speed, false)

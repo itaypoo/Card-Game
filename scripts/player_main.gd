@@ -14,6 +14,7 @@ var shoot_cd = 0
 var player_hp = 10
 var invis = 0
 var friction = 0.5
+var default_speed = 5
 
 var move_vec = Vector2.ZERO
 
@@ -155,4 +156,7 @@ func set_auto_aim(auto_aim):
 
 func set_gun_texture(path):
 	$gun/gun.texture = load(path)
-
+	
+func set_default_speed(speed):
+	print(speed)
+	default_speed = speed
