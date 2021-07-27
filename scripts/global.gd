@@ -61,6 +61,8 @@ func _physics_process(_delta):
 		hitstun -= 1
 	else: get_tree().paused = false
 	
+	print(get_zero_pos())
+	
 	camera.position = global.player_pos
 	if screenshake > 0:
 		camera.position += Vector2(clamp(screenshake, 0, 30), 0).rotated(deg2rad(rand_range(0, 360)))
@@ -75,4 +77,6 @@ func set_screenshake(amount):
 	if amount > screenshake: screenshake = amount
 	
 func get_zero_pos():
-	return camera.get_camera_position() - Vector2(1280, 720)/2
+	var x = stepify(camera.get_camera_screen_center().x, 0.1)
+	var y = stepify(camera.get_camera_screen_center().y, 0.1)
+	return Vector2(x, y) - Vector2(1280, 720)/2
