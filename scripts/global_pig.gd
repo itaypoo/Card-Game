@@ -5,7 +5,8 @@ var dead = false
 
 func _ready():
 	randomize()
-	position = Vector2(int (rand_range(50, 1230)), -50)
+	position = global.get_zero_pos()
+	position += Vector2(int (rand_range(50, 1230)), -50)
 	randomize()
 	lifetime = int (rand_range(50, 200))
 

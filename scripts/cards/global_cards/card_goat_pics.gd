@@ -6,7 +6,6 @@ func _ready():
 
 func _physics_process(_delta):
 	position = global.get_zero_pos()
-	print(global.get_zero_pos())
 
 func _on_anim_animation_finished(anim_name):
 	$anim.play("anim")
