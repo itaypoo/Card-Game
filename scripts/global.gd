@@ -60,7 +60,7 @@ func _physics_process(_delta):
 		hitstun -= 1
 	else: get_tree().paused = false
 	
-	camera.position = Vector2(640, 360)
+	camera.position = global.player_pos
 	if screenshake > 0:
 		camera.position += Vector2(clamp(screenshake, 0, 30), 0).rotated(deg2rad(rand_range(0, 360)))
 		screenshake -= 1
