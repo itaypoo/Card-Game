@@ -16,6 +16,9 @@ func _ready():
 	randomize()
 	pause_timer.wait_time = rand_range(rng.x, rng.y)
 
+func _physics_process(_delta):
+	position = global.get_zero_pos()
+	
 func _on_back_timer_timeout():
 	get_tree().call_group("player", "set_pos", old_pos)
 	randomize()

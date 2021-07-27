@@ -2,7 +2,11 @@ extends Area2D
 
 func _ready():
 	randomize()
-	position.x = rand_range(100, 1180)
+	position = global.get_zero_pos()
+	position.x += rand_range(100, 1180)
+	
+func _physics_process(_delta):
+	position.y = global.get_zero_pos().y
 
 func _on_anim_animation_finished(anim_name):
 	if anim_name == "load":
