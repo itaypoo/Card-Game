@@ -7,7 +7,7 @@ export (bool) var spawn_random = false
 
 func _ready():
 	var card = 0
-	for i in range(0, 4):
+	for i in range(0, 0):
 		randomize()
 		card = int(rand_range(0, global.cards.size()))
 		get_tree().call_group("world", "added_card", global.cards[card])
