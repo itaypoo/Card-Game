@@ -54,6 +54,7 @@ var hitstun = 0
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
+	
 func _physics_process(_delta):
 	if hitstun > 0: 
 		get_tree().paused = true
@@ -72,3 +73,6 @@ func set_hitstun(amount):
 
 func set_screenshake(amount):
 	if amount > screenshake: screenshake = amount
+	
+func get_zero_pos():
+	return camera.get_camera_position() - Vector2(1280, 720)/2
