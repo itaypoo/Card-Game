@@ -3,14 +3,15 @@ extends Node2D
 onready var label = $label
 var player_ticks = 0
 
+export (bool) var sticks_to_player = false
+
 func _physics_process(_delta):
 	label.text = str(global.player_hp)
-	if player_ticks > 0: 
-		position = Vector2(global.player_pos.x, global.player_pos.y - 120)
+	
+	if player_ticks > 0:
 		player_ticks -= 1
-		scale = Vector2(1,1)
+		visible = sticks_to_player
 	else:
-		position = Vector2(70, 70)
-		scale = Vector2(1, 1)
+		visible = !sticks_to_player
 
 func player_got_hurt(): player_ticks = 60

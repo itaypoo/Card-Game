@@ -12,7 +12,7 @@ gradient = SubResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
-emission_box_extents = Vector3( 640, 640, 1 )
+emission_box_extents = Vector3( 960, 960, 1 )
 flag_align_y = true
 flag_rotate_y = true
 flag_disable_z = true
@@ -31,7 +31,7 @@ wait_time = 15.0
 autostart = true
 
 [node name="wind_particle" type="Particles2D" parent="."]
-position = Vector2( 640, 360 )
+position = Vector2( 960, 540 )
 amount = 30
 process_material = SubResource( 3 )
 texture = ExtResource( 2 )

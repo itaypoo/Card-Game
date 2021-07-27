@@ -189,5 +189,6 @@ texture = ExtResource( 6 )
 
 [node name="global_cards" type="Node2D" parent="."]
 
-[node name="health_bar" parent="." instance=ExtResource( 7 )]
-position = Vector2( 70, 70 )
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="health_bar" parent="CanvasLayer" instance=ExtResource( 7 )]
