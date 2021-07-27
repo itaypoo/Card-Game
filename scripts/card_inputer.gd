@@ -3,6 +3,17 @@ extends Node2D
 onready var text = $text
 var input = 0
 
+export (bool) var spawn_random = false
+
+func _ready():
+	var card = 0
+	for i in range(0, 4):
+		randomize()
+		card = int(rand_range(0, global.cards.size()))
+		get_tree().call_group("world", "added_card", global.cards[card])
+		global.active_cards.append(global.cards[card])
+		print("Added Card - ", card, ", ID ", global.cards[card])
+
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed:

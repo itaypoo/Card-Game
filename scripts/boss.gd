@@ -8,7 +8,6 @@ func  _physics_process(_delta):
 
 func hurt_boss(hp):
 	boss_hp -= hp
-	print(boss_hp)
 	if boss_hp <= 0:
 		queue_free()
 

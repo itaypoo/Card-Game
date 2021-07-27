@@ -2,6 +2,7 @@ extends Node2D
 
 var player_pos = Vector2.ZERO
 var boss_pos = Vector2.ZERO
+var player_hp = 0
 
 var current_player = 3
 
@@ -40,6 +41,7 @@ var card_list = {
 	84: "res://scenes/cards/global_cards/card_player_clone.tscn"
 }
 
+var cards = [12, 22, 32, 42, 52, 62, 72, 82, 92, 13, 23, 33, 43, 53, 63, 73, 83, 14, 24, 34, 44, 54, 64, 74, 84]
 ###############################################################################
 
 onready var camera  = $camera

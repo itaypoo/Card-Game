@@ -7,9 +7,7 @@ func _ready():
 	random_pos()
 	
 func _physics_process(_delta):
-	print(x)
-	print(y)
-	get_tree().call_group("player", "add_pos", Vector2(x, y))
+	get_tree().call_group("player", "add_pos", Vector2(x * 2, y * 2))
 
 func _on_Timer_timeout():
 	random_pos()

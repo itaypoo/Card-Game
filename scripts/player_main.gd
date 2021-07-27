@@ -39,6 +39,7 @@ func _ready():
 
 func _physics_process(_delta):
 	global.player_pos = self.position
+	global.player_hp = player_hp
 	moving = false
 	
 	if Input.is_action_pressed("player_up"):
@@ -94,6 +95,7 @@ func _physics_process(_delta):
 
 func hurt_player(hp):
 	if invis <= 0:
+		get_tree().call_group("hp_bar", "player_got_hurt")
 		player_hp -= hp
 		invis = 30
 		$hurt_anim.play("hurt")
@@ -106,7 +108,6 @@ func hurt_player(hp):
 
 func spawn_bullet():
 	for i in range(0,gun_amount):
-		print(i)
 		var bullet_inst = player_bullet.instance()
 		var y = 0
 		if not i == 0:
