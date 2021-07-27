@@ -1,0 +1,300 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/leaderboard.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://textures/player/leg_sheet.png" type="Texture" id=3]
+[ext_resource path="res://textures/player/body_sheet.png" type="Texture" id=4]
+[ext_resource path="res://textures/player/glasses.png" type="Texture" id=5]
+[ext_resource path="res://textures/player/band.png" type="Texture" id=6]
+[ext_resource path="res://textures/player/head_sheet.png" type="Texture" id=7]
+[ext_resource path="res://textures/player/skirt.png" type="Texture" id=8]
+[ext_resource path="res://textures/player/tie.png" type="Texture" id=9]
+
+[node name="leaderboard" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="p1" type="Node2D" parent="."]
+
+[node name="p1_sprites" type="Node2D" parent="p1"]
+use_parent_material = true
+position = Vector2( 0.51757, 60.338 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="leg_left" type="Sprite" parent="p1/p1_sprites"]
+use_parent_material = true
+position = Vector2( -16, 52 )
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="leg_right" type="Sprite" parent="p1/p1_sprites"]
+use_parent_material = true
+position = Vector2( 16, 52 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="body" type="Sprite" parent="p1/p1_sprites"]
+use_parent_material = true
+position = Vector2( 0, -9.33334 )
+scale = Vector2( 1, 0.8 )
+texture = ExtResource( 4 )
+hframes = 4
+
+[node name="tie" type="Sprite" parent="p1/p1_sprites/body"]
+use_parent_material = true
+position = Vector2( 2, -20.25 )
+texture = ExtResource( 9 )
+
+[node name="skirt" type="Sprite" parent="p1/p1_sprites/body"]
+use_parent_material = true
+position = Vector2( -1, 41.75 )
+scale = Vector2( 0.95, 1 )
+texture = ExtResource( 8 )
+
+[node name="head" type="Sprite" parent="p1/p1_sprites"]
+use_parent_material = true
+position = Vector2( 0, -75 )
+texture = ExtResource( 7 )
+hframes = 4
+
+[node name="glasses" type="Sprite" parent="p1/p1_sprites/head"]
+use_parent_material = true
+position = Vector2( 13, 15.3333 )
+texture = ExtResource( 5 )
+
+[node name="band" type="Sprite" parent="p1/p1_sprites/head"]
+use_parent_material = true
+position = Vector2( -1.83333, -9.66667 )
+texture = ExtResource( 6 )
+
+[node name="pedestal" type="Sprite" parent="p1"]
+position = Vector2( -0.372932, 137.503 )
+texture = ExtResource( 2 )
+
+[node name="p1_label" type="Label" parent="p1"]
+margin_left = -37.8113
+margin_top = 106.873
+margin_right = 34.1887
+margin_bottom = 120.873
+text = "Player 1: -1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p2" type="Node2D" parent="."]
+
+[node name="p2_sprites" type="Node2D" parent="p2"]
+use_parent_material = true
+position = Vector2( -0.188629, 60.5152 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="leg_left" type="Sprite" parent="p2/p2_sprites"]
+use_parent_material = true
+position = Vector2( -16, 52 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 1
+
+[node name="leg_right" type="Sprite" parent="p2/p2_sprites"]
+use_parent_material = true
+position = Vector2( 16, 52 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 1
+
+[node name="body" type="Sprite" parent="p2/p2_sprites"]
+use_parent_material = true
+position = Vector2( 0, -9.33334 )
+scale = Vector2( 1, 0.8 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="tie" type="Sprite" parent="p2/p2_sprites/body"]
+use_parent_material = true
+position = Vector2( 2, -20.25 )
+texture = ExtResource( 9 )
+
+[node name="skirt" type="Sprite" parent="p2/p2_sprites/body"]
+use_parent_material = true
+position = Vector2( -1, 41.75 )
+scale = Vector2( 0.95, 1 )
+texture = ExtResource( 8 )
+
+[node name="head" type="Sprite" parent="p2/p2_sprites"]
+use_parent_material = true
+position = Vector2( 0, -75 )
+texture = ExtResource( 7 )
+hframes = 4
+frame = 1
+
+[node name="glasses" type="Sprite" parent="p2/p2_sprites/head"]
+use_parent_material = true
+position = Vector2( 13, 15.3333 )
+texture = ExtResource( 5 )
+
+[node name="band" type="Sprite" parent="p2/p2_sprites/head"]
+use_parent_material = true
+position = Vector2( -1.83333, -9.66667 )
+texture = ExtResource( 6 )
+
+[node name="pedestal" type="Sprite" parent="p2"]
+position = Vector2( -332.355, 72.8719 )
+texture = ExtResource( 2 )
+offset = Vector2( 334.839, 66.0424 )
+
+[node name="p2_label" type="Label" parent="p2"]
+margin_left = -32.7465
+margin_top = 107.148
+margin_right = 39.2535
+margin_bottom = 121.148
+rect_pivot_offset = Vector2( -299.609, -34.2766 )
+text = "Player 2: -1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p3" type="Node2D" parent="."]
+
+[node name="p3_sprites" type="Node2D" parent="p3"]
+use_parent_material = true
+position = Vector2( 0.118958, 60.4374 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="leg_left" type="Sprite" parent="p3/p3_sprites"]
+use_parent_material = true
+position = Vector2( -16, 52 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 2
+
+[node name="leg_right" type="Sprite" parent="p3/p3_sprites"]
+use_parent_material = true
+position = Vector2( 16, 52 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 2
+
+[node name="body" type="Sprite" parent="p3/p3_sprites"]
+use_parent_material = true
+position = Vector2( 0, -9.33334 )
+scale = Vector2( 1, 0.8 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 2
+
+[node name="tie" type="Sprite" parent="p3/p3_sprites/body"]
+use_parent_material = true
+position = Vector2( 2, -20.25 )
+texture = ExtResource( 9 )
+
+[node name="skirt" type="Sprite" parent="p3/p3_sprites/body"]
+use_parent_material = true
+position = Vector2( -1, 41.75 )
+scale = Vector2( 0.95, 1 )
+texture = ExtResource( 8 )
+
+[node name="head" type="Sprite" parent="p3/p3_sprites"]
+use_parent_material = true
+position = Vector2( 0, -75 )
+texture = ExtResource( 7 )
+hframes = 4
+frame = 2
+
+[node name="glasses" type="Sprite" parent="p3/p3_sprites/head"]
+use_parent_material = true
+position = Vector2( 13, 15.3333 )
+texture = ExtResource( 5 )
+
+[node name="band" type="Sprite" parent="p3/p3_sprites/head"]
+use_parent_material = true
+position = Vector2( -1.83333, -9.66667 )
+texture = ExtResource( 6 )
+
+[node name="pedestal" type="Sprite" parent="p3"]
+position = Vector2( -0.771912, 137.946 )
+texture = ExtResource( 2 )
+
+[node name="p3_label" type="Label" parent="p3"]
+margin_left = -36.2423
+margin_top = 108.857
+margin_right = 35.7578
+margin_bottom = 122.857
+text = "Player 3: -1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p4" type="Node2D" parent="."]
+
+[node name="p1_sprites" type="Node2D" parent="p4"]
+use_parent_material = true
+position = Vector2( 1.85693, 60.9856 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="leg_left" type="Sprite" parent="p4/p1_sprites"]
+use_parent_material = true
+position = Vector2( -16, 52 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 3
+
+[node name="leg_right" type="Sprite" parent="p4/p1_sprites"]
+use_parent_material = true
+position = Vector2( 16, 52 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 3
+
+[node name="body" type="Sprite" parent="p4/p1_sprites"]
+use_parent_material = true
+position = Vector2( 0, -9.33334 )
+scale = Vector2( 1, 0.8 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 3
+
+[node name="tie" type="Sprite" parent="p4/p1_sprites/body"]
+use_parent_material = true
+position = Vector2( 2, -20.25 )
+texture = ExtResource( 9 )
+
+[node name="skirt" type="Sprite" parent="p4/p1_sprites/body"]
+use_parent_material = true
+position = Vector2( -1, 41.75 )
+scale = Vector2( 0.95, 1 )
+texture = ExtResource( 8 )
+
+[node name="head" type="Sprite" parent="p4/p1_sprites"]
+use_parent_material = true
+position = Vector2( 0, -75 )
+texture = ExtResource( 7 )
+hframes = 4
+frame = 3
+
+[node name="glasses" type="Sprite" parent="p4/p1_sprites/head"]
+use_parent_material = true
+position = Vector2( 13, 15.3333 )
+texture = ExtResource( 5 )
+
+[node name="band" type="Sprite" parent="p4/p1_sprites/head"]
+use_parent_material = true
+position = Vector2( -1.83333, -9.66667 )
+texture = ExtResource( 6 )
+
+[node name="pedestal" type="Sprite" parent="p4"]
+position = Vector2( 0.965881, 137.603 )
+texture = ExtResource( 2 )
+
+[node name="p4_label" type="Label" parent="p4"]
+margin_left = -31.0121
+margin_top = 107.655
+margin_right = 40.9879
+margin_bottom = 121.655
+text = "Player 4: -1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
