@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/leaderboard.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://textures/player/head_sheet.png" type="Texture" id=7]
 [ext_resource path="res://textures/player/skirt.png" type="Texture" id=8]
 [ext_resource path="res://textures/player/tie.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/SeculatOne-Regular.tres" type="DynamicFont" id=10]
 
 [node name="leaderboard" type="Node2D"]
 script = ExtResource( 1 )
@@ -72,20 +73,27 @@ position = Vector2( -0.372932, 137.503 )
 texture = ExtResource( 2 )
 
 [node name="p1_label" type="Label" parent="p1"]
-margin_left = -37.8113
-margin_top = 106.873
-margin_right = 34.1887
-margin_bottom = 120.873
-text = "Player 1: -1"
+visible = false
+margin_left = -46.909
+margin_top = 78.0
+margin_right = 54.091
+margin_bottom = 117.0
+rect_pivot_offset = Vector2( 23.173, 15.6281 )
+custom_fonts/font = ExtResource( 10 )
+text = "Score: 1"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="p1"]
 
 [node name="p2" type="Node2D" parent="."]
 
 [node name="p2_sprites" type="Node2D" parent="p2"]
 use_parent_material = true
-position = Vector2( -0.188629, 60.5152 )
+position = Vector2( -1.18863, 60.5152 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="leg_left" type="Sprite" parent="p2/p2_sprites"]
@@ -140,20 +148,26 @@ position = Vector2( -1.83333, -9.66667 )
 texture = ExtResource( 6 )
 
 [node name="pedestal" type="Sprite" parent="p2"]
-position = Vector2( -332.355, 72.8719 )
+position = Vector2( -333.355, 72.8719 )
 texture = ExtResource( 2 )
 offset = Vector2( 334.839, 66.0424 )
 
 [node name="p2_label" type="Label" parent="p2"]
-margin_left = -32.7465
-margin_top = 107.148
-margin_right = 39.2535
-margin_bottom = 121.148
-rect_pivot_offset = Vector2( -299.609, -34.2766 )
-text = "Player 2: -1"
+visible = false
+margin_left = -46.909
+margin_top = 78.0
+margin_right = 54.091
+margin_bottom = 117.0
+rect_pivot_offset = Vector2( 23.173, 15.6281 )
+custom_fonts/font = ExtResource( 10 )
+text = "Score: 1"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="p2"]
 
 [node name="p3" type="Node2D" parent="."]
 
@@ -218,14 +232,21 @@ position = Vector2( -0.771912, 137.946 )
 texture = ExtResource( 2 )
 
 [node name="p3_label" type="Label" parent="p3"]
-margin_left = -36.2423
-margin_top = 108.857
-margin_right = 35.7578
-margin_bottom = 122.857
-text = "Player 3: -1"
+visible = false
+margin_left = -46.909
+margin_top = 78.0
+margin_right = 54.091
+margin_bottom = 117.0
+rect_pivot_offset = Vector2( 23.173, 15.6281 )
+custom_fonts/font = ExtResource( 10 )
+text = "Score: 1"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="p3"]
 
 [node name="p4" type="Node2D" parent="."]
 
@@ -290,11 +311,18 @@ position = Vector2( 0.965881, 137.603 )
 texture = ExtResource( 2 )
 
 [node name="p4_label" type="Label" parent="p4"]
-margin_left = -31.0121
-margin_top = 107.655
-margin_right = 40.9879
-margin_bottom = 121.655
-text = "Player 4: -1"
+visible = false
+margin_left = -46.909
+margin_top = 78.0
+margin_right = 54.091
+margin_bottom = 117.0
+rect_pivot_offset = Vector2( 23.173, 15.6281 )
+custom_fonts/font = ExtResource( 10 )
+text = "Score: 1"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="p4"]
