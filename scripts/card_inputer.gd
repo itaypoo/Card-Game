@@ -1,20 +1,25 @@
 extends Node2D
 
+var card_tex = preload("res://scenes/sprite_card_generator.tscn")
+
 onready var text = $text
 var input = 0
+var cards_spawned = 0
 
 export (bool) var spawn_random = false
 
 func _ready():
 	var card = 0
-	for i in range(0, 0):
-		randomize()
-		card = int(rand_range(0, global.cards.size()))
-		get_tree().call_group("world", "added_card", global.cards[card])
-		global.active_cards.append(global.cards[card])
-		print("Added Card - ", card, ", ID ", global.cards[card])
+	$float_player/sprites_player/leg_left.frame = global.current_player - 1
+	$float_player/sprites_player/leg_right.frame = global.current_player - 1
+	$float_player/sprites_player/body.frame = global.current_player - 1
+	$float_player/sprites_player/head.frame = global.current_player - 1
+	$float_player/sprites_player/hnad_sheet.frame = global.current_player - 1
+	$float_player/sprites_player/hnad_sheet2.frame = global.current_player - 1
 
 func _input(event):
+	if cards_spawned >= 4: return
+	
 	if event is InputEventKey:
 		if event.pressed:
 			var num
@@ -28,6 +33,10 @@ func _input(event):
 			elif Input.is_action_just_pressed("7"): num = 7
 			elif Input.is_action_just_pressed("8"): num = 8
 			elif Input.is_action_just_pressed("9"): num = 9
+			elif Input.is_action_just_pressed("back"):
+				num = null
+				input = 0
+				text.text = str("Insert Card >> ", input)
 			
 			if num:
 				input *= 10
@@ -39,7 +48,28 @@ func _input(event):
 					get_tree().call_group("world", "added_card", input)
 					global.active_cards.append(input)
 					text.text = "Added Card"
+					spawn_card(input)
 				else:
 					text.text = "Invalid Card ID"
 				input = 0
-			
+
+func spawn_card(id):
+	if cards_spawned >= 4: return
+	
+	cards_spawned += 1
+	var card_inst = card_tex.instance()
+	card_inst.card_id = id
+	card_inst.position = Vector2((320 * cards_spawned) - 160, 360)
+	card_inst.does_spawn_anim = true
+	add_child(card_inst)
+	
+	if cards_spawned >= 4: 
+		$ruready_anim.play("ruready")
+		$float_player/player_anim.play("fly_away")
+
+func _on_ruready_anim_animation_finished(anim_name):
+	transition.fade_out("res://scenes/world.tscn")
+
+
+func _on_player_anim_animation_finished(anim_name):
+	if anim_name == "ready": $float_player/player_anim.play("idle")

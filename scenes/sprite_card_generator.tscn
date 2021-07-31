@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://textures/card textures/mask.png" type="Texture" id=1]
+[ext_resource path="res://textures/card textures/type_sheet.png" type="Texture" id=2]
+[ext_resource path="res://textures/card textures/card.png" type="Texture" id=3]
+[ext_resource path="res://textures/card textures/barcodes/12.png" type="Texture" id=4]
+[ext_resource path="res://textures/Bigboy.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scripts/sprite_card_generator.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 55
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( -0.4, 0.4 ), Vector2( 0.4, 0.4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="sprite_card_generator" type="Node2D"]
+scale = Vector2( 0.4, 0.4 )
+script = ExtResource( 6 )
+card_id = 54
+
+[node name="back" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="type_icon" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 3
+frame = 2
+
+[node name="title" type="Label" parent="."]
+margin_left = -248.0
+margin_top = -275.0
+margin_right = 249.0
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Card Template"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mask" type="Light2D" parent="."]
+position = Vector2( 0.954124, 311.674 )
+scale = Vector2( 10.0725, 1.2982 )
+texture = ExtResource( 1 )
+color = Color( 1, 1, 1, 0 )
+mode = 3
+range_item_cull_mask = 524288
+
+[node name="barcode" type="Sprite" parent="."]
+light_mask = 524288
+position = Vector2( 0, 250 )
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 4 )
+
+[node name="id_text" type="Label" parent="."]
+margin_left = -248.0
+margin_top = 295.0
+margin_right = 249.0
+margin_bottom = 571.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "id"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spawn_anim" type="AnimationPlayer" parent="."]
+anims/spawn = SubResource( 3 )
+
+[node name="pos_tween" type="Tween" parent="."]

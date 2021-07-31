@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/boss.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/card_inputer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/world.gd" type="Script" id=4]
 [ext_resource path="res://textures/background/tile_sheet.png" type="Texture" id=5]
-[ext_resource path="res://textures/background/sidegrass.png" type="Texture" id=6]
 [ext_resource path="res://scenes/health_bar.tscn" type="PackedScene" id=7]
 
 [node name="world" type="Node2D" groups=[
@@ -14,152 +12,526 @@
 script = ExtResource( 4 )
 
 [node name="background_tiles" type="Node2D" parent="."]
-visible = false
+position = Vector2( 60, 0 )
 z_index = -1
 
 [node name="tile1" type="Sprite" parent="background_tiles"]
-position = Vector2( 100, 90 )
+position = Vector2( 90, 90 )
 texture = ExtResource( 5 )
 hframes = 3
 frame = 2
 
 [node name="tile2" type="Sprite" parent="background_tiles"]
-position = Vector2( 280, 90 )
+position = Vector2( 270, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile3" type="Sprite" parent="background_tiles"]
-position = Vector2( 460, 90 )
+position = Vector2( 450, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile4" type="Sprite" parent="background_tiles"]
-position = Vector2( 640, 90 )
+position = Vector2( 630, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile5" type="Sprite" parent="background_tiles"]
-position = Vector2( 820, 90 )
+position = Vector2( 810, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile6" type="Sprite" parent="background_tiles"]
-position = Vector2( 1000, 90 )
+position = Vector2( 990, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile7" type="Sprite" parent="background_tiles"]
-position = Vector2( 1180, 90 )
+position = Vector2( 1170, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile8" type="Sprite" parent="background_tiles"]
-position = Vector2( 100, 270 )
+position = Vector2( 1350, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile9" type="Sprite" parent="background_tiles"]
-position = Vector2( 280, 270 )
+position = Vector2( 1530, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile10" type="Sprite" parent="background_tiles"]
-position = Vector2( 460, 270 )
+position = Vector2( 1710, 90 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile11" type="Sprite" parent="background_tiles"]
-position = Vector2( 640, 270 )
+position = Vector2( 90, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile12" type="Sprite" parent="background_tiles"]
-position = Vector2( 820, 270 )
+position = Vector2( 270, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile13" type="Sprite" parent="background_tiles"]
-position = Vector2( 1000, 270 )
+position = Vector2( 450, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile14" type="Sprite" parent="background_tiles"]
-position = Vector2( 1180, 270 )
+position = Vector2( 630, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile15" type="Sprite" parent="background_tiles"]
-position = Vector2( 100, 450 )
+position = Vector2( 810, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile16" type="Sprite" parent="background_tiles"]
-position = Vector2( 280, 450 )
+position = Vector2( 990, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile17" type="Sprite" parent="background_tiles"]
-position = Vector2( 460, 450 )
+position = Vector2( 1170, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile18" type="Sprite" parent="background_tiles"]
-position = Vector2( 640, 450 )
+position = Vector2( 1350, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile19" type="Sprite" parent="background_tiles"]
-position = Vector2( 820, 450 )
+position = Vector2( 1530, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile20" type="Sprite" parent="background_tiles"]
-position = Vector2( 1000, 450 )
+position = Vector2( 1710, 270 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile21" type="Sprite" parent="background_tiles"]
-position = Vector2( 1180, 450 )
+position = Vector2( 90, 450 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile22" type="Sprite" parent="background_tiles"]
-position = Vector2( 100, 630 )
+position = Vector2( 270, 450 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile23" type="Sprite" parent="background_tiles"]
-position = Vector2( 280, 630 )
+position = Vector2( 450, 450 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile24" type="Sprite" parent="background_tiles"]
-position = Vector2( 460, 630 )
+position = Vector2( 630, 450 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile25" type="Sprite" parent="background_tiles"]
-position = Vector2( 640, 630 )
+position = Vector2( 810, 450 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile26" type="Sprite" parent="background_tiles"]
-position = Vector2( 820, 630 )
+position = Vector2( 990, 450 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile27" type="Sprite" parent="background_tiles"]
-position = Vector2( 1000, 630 )
+position = Vector2( 1170, 450 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
 [node name="tile28" type="Sprite" parent="background_tiles"]
-position = Vector2( 1180, 630 )
+position = Vector2( 1350, 450 )
 texture = ExtResource( 5 )
 hframes = 3
+frame = 2
 
-[node name="card_inputer" parent="." instance=ExtResource( 3 )]
-position = Vector2( 17, -4 )
+[node name="tile29" type="Sprite" parent="background_tiles"]
+position = Vector2( 1530, 450 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile30" type="Sprite" parent="background_tiles"]
+position = Vector2( 1710, 450 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile31" type="Sprite" parent="background_tiles"]
+position = Vector2( 90, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile32" type="Sprite" parent="background_tiles"]
+position = Vector2( 270, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile33" type="Sprite" parent="background_tiles"]
+position = Vector2( 450, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile34" type="Sprite" parent="background_tiles"]
+position = Vector2( 630, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile35" type="Sprite" parent="background_tiles"]
+position = Vector2( 810, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile36" type="Sprite" parent="background_tiles"]
+position = Vector2( 990, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile37" type="Sprite" parent="background_tiles"]
+position = Vector2( 1170, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile38" type="Sprite" parent="background_tiles"]
+position = Vector2( 1350, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile39" type="Sprite" parent="background_tiles"]
+position = Vector2( 1530, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile40" type="Sprite" parent="background_tiles"]
+position = Vector2( 1710, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile41" type="Sprite" parent="background_tiles"]
+position = Vector2( 90, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile42" type="Sprite" parent="background_tiles"]
+position = Vector2( 270, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile43" type="Sprite" parent="background_tiles"]
+position = Vector2( 450, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile44" type="Sprite" parent="background_tiles"]
+position = Vector2( 630, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile45" type="Sprite" parent="background_tiles"]
+position = Vector2( 810, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile46" type="Sprite" parent="background_tiles"]
+position = Vector2( 990, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile47" type="Sprite" parent="background_tiles"]
+position = Vector2( 1170, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile48" type="Sprite" parent="background_tiles"]
+position = Vector2( 1350, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile49" type="Sprite" parent="background_tiles"]
+position = Vector2( 1530, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile50" type="Sprite" parent="background_tiles"]
+position = Vector2( 1710, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile51" type="Sprite" parent="background_tiles"]
+position = Vector2( 90, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile52" type="Sprite" parent="background_tiles"]
+position = Vector2( 270, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile53" type="Sprite" parent="background_tiles"]
+position = Vector2( 450, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile54" type="Sprite" parent="background_tiles"]
+position = Vector2( 630, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile55" type="Sprite" parent="background_tiles"]
+position = Vector2( 810, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile56" type="Sprite" parent="background_tiles"]
+position = Vector2( 990, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile57" type="Sprite" parent="background_tiles"]
+position = Vector2( 1170, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile58" type="Sprite" parent="background_tiles"]
+position = Vector2( 1350, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile59" type="Sprite" parent="background_tiles"]
+position = Vector2( 1530, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile60" type="Sprite" parent="background_tiles"]
+position = Vector2( 1710, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile61" type="Sprite" parent="background_tiles"]
+position = Vector2( 90, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile71" type="Sprite" parent="background_tiles"]
+position = Vector2( -90, 90 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile72" type="Sprite" parent="background_tiles"]
+position = Vector2( -90, 270 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile73" type="Sprite" parent="background_tiles"]
+position = Vector2( -90, 450 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile74" type="Sprite" parent="background_tiles"]
+position = Vector2( -90, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile75" type="Sprite" parent="background_tiles"]
+position = Vector2( -90, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile76" type="Sprite" parent="background_tiles"]
+position = Vector2( -90, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile77" type="Sprite" parent="background_tiles"]
+position = Vector2( -90, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile62" type="Sprite" parent="background_tiles"]
+position = Vector2( 270, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile63" type="Sprite" parent="background_tiles"]
+position = Vector2( 450, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile64" type="Sprite" parent="background_tiles"]
+position = Vector2( 630, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile65" type="Sprite" parent="background_tiles"]
+position = Vector2( 810, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile66" type="Sprite" parent="background_tiles"]
+position = Vector2( 990, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile67" type="Sprite" parent="background_tiles"]
+position = Vector2( 1170, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile68" type="Sprite" parent="background_tiles"]
+position = Vector2( 1350, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile69" type="Sprite" parent="background_tiles"]
+position = Vector2( 1530, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile70" type="Sprite" parent="background_tiles"]
+position = Vector2( 1710, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile78" type="Sprite" parent="background_tiles"]
+position = Vector2( 1890, 90 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile79" type="Sprite" parent="background_tiles"]
+position = Vector2( 1890, 270 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile80" type="Sprite" parent="background_tiles"]
+position = Vector2( 1890, 450 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile81" type="Sprite" parent="background_tiles"]
+position = Vector2( 1890, 630 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile82" type="Sprite" parent="background_tiles"]
+position = Vector2( 1890, 810 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile83" type="Sprite" parent="background_tiles"]
+position = Vector2( 1890, 990 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile84" type="Sprite" parent="background_tiles"]
+position = Vector2( 1890, 1170 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile71" type="Sprite" parent="."]
+position = Vector2( 1920, 90 )
+scale = Vector2( 0.01, 1 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
+
+[node name="tile72" type="Sprite" parent="."]
+position = Vector2( 0, 90 )
+scale = Vector2( 0.01, 1 )
+texture = ExtResource( 5 )
+hframes = 3
+frame = 2
 
 [node name="objects" type="YSort" parent="." groups=[
 "objects",
@@ -174,18 +546,6 @@ position = Vector2( 960, 540 )
 [node name="boss_cards" type="Path2D" parent="."]
 position = Vector2( 1167.8, 334.167 )
 curve = null
-
-[node name="topground" type="Node2D" parent="."]
-visible = false
-
-[node name="sidegrass" type="Sprite" parent="topground"]
-position = Vector2( 1253, 360 )
-texture = ExtResource( 6 )
-
-[node name="sidegrass2" type="Sprite" parent="topground"]
-position = Vector2( 27, 360 )
-scale = Vector2( -1, -1 )
-texture = ExtResource( 6 )
 
 [node name="global_cards" type="Node2D" parent="."]
 

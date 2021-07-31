@@ -22,6 +22,7 @@ var moving = false
 var is_slow = false
 var is_slippery = true
 var gun_auto_aim = false
+var is_paused = true
 
 var gun_cd = 10
 var gun_speed = 20
@@ -35,10 +36,12 @@ func _ready():
 	$sprites/head.frame = global.current_player - 1
 	$sprites/body.frame = global.current_player - 1
 	$gun/gun.frame = global.current_player - 1
+	self.pause_mode = PAUSE_MODE_PROCESS
 
 ##############################################################################
 
 func _physics_process(_delta):
+	if is_paused: return
 	global.player_pos = self.position
 	global.player_hp = player_hp
 	moving = false
@@ -131,16 +134,18 @@ func spawn_bullet():
 func set_speed(speed, is_slow):
 	move_speed = speed
 	self.is_slow = is_slow
-	
+
 func set_pos(pos):
+	if is_paused: return
 	position = pos
 
 func add_pos(pos):
+	if is_paused: return
 	position += pos
-	
+
 func reverse_move_speed():
 	move_speed *= -1
-	
+
 func add_health(hp):
 	player_hp += hp
 
@@ -160,3 +165,11 @@ func set_gun_texture(path):
 func set_default_speed(speed):
 	print(speed)
 	default_speed = speed
+
+func _on_spawnpauuse_timer_timeout():
+	get_tree().paused = true
+
+func _on_rspawn_anim_animation_finished(anim_name):
+	get_tree().paused = false
+	is_paused = false
+	self.pause_mode = PAUSE_MODE_INHERIT

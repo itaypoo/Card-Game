@@ -6,7 +6,7 @@
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.395349, 1 )
-colors = PoolColorArray( 0.849121, 0.644113, 0.122725, 1, 0.73584, 0.0804825, 0.0804825, 1, 0, 0, 0, 0 )
+colors = PoolColorArray( 0.947266, 0.700809, 0.0740051, 1, 0.873047, 0.10231, 0.10231, 1, 0, 0, 0, 0 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
@@ -20,13 +20,12 @@ curve = SubResource( 3 )
 [sub_resource type="ParticlesMaterial" id=5]
 flag_rotate_y = true
 flag_disable_z = true
-spread = 10.0
+spread = 2.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 300.0
 angular_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-damping = 100.0
 scale = 0.5
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
@@ -37,7 +36,8 @@ script = ExtResource( 2 )
 [node name="fire_particle" type="Particles2D" parent="."]
 position = Vector2( 23, 0 )
 rotation = 0.000123019
-amount = 30
+amount = 60
+lifetime = 2.5
 local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 3 )

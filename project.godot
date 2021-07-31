@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 global="*res://scenes/global.tscn"
+transition="*res://scenes/transition.tscn"
 
 [display]
 
@@ -118,6 +119,11 @@ player_shoot={
 enter={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+back={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777220,"unicode":0,"echo":false,"script":null)
  ]
 }
 

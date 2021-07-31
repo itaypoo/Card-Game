@@ -2,7 +2,7 @@ extends Area2D
 
 onready var coll_shape = $coll_shape
 
-export (int) var bullet_speed = 3
+export (int) var bullet_speed = 5
 var lifetime = 0
 
 var vec_to_player = Vector2.ZERO
@@ -19,4 +19,4 @@ func _physics_process(_delta):
 			area.hurt_player(1)
 	
 	lifetime += 1
-	if lifetime > 50: queue_free()
+	if lifetime > 100: queue_free()

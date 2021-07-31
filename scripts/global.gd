@@ -9,6 +9,7 @@ var current_player = 3
 var active_cards = []
 
 var inverted_controls = false
+var ingame = false
 
 var score_p1 = 0
 var score_p2 = 0
@@ -66,9 +67,10 @@ func _physics_process(_delta):
 		hitstun -= 1
 	else: get_tree().paused = false
 	
-	print(get_zero_pos())
-	
-	camera.position = global.player_pos
+	if ingame:
+		camera.position = global.player_pos
+	else:
+		camera.position = Vector2(640, 360)
 	if screenshake > 0:
 		camera.position += Vector2(clamp(screenshake, 0, 30), 0).rotated(deg2rad(rand_range(0, 360)))
 		screenshake -= 1
