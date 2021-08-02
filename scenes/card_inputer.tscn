@@ -16,7 +16,7 @@
 [ext_resource path="res://textures/player/body_sheet.png" type="Texture" id=14]
 [ext_resource path="res://textures/player/head_sheet.png" type="Texture" id=15]
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 460, 1 )
 flag_disable_z = true
@@ -26,7 +26,7 @@ initial_velocity = 700.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=2]
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
@@ -36,12 +36,11 @@ orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 1.0
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 50
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "ruready"
+[sub_resource type="Animation" id=4]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("get_ready:scale")
@@ -74,7 +73,7 @@ outline_size = 6
 outline_color = Color( 0.109804, 0.0431373, 0.0941176, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "fly_away"
 length = 4.0
 tracks/0/type = "value"
@@ -90,8 +89,7 @@ tracks/0/keys = {
 "values": [ Vector2( 86.7445, 654.152 ), Vector2( 86.7445, 654.152 ), Vector2( 301.948, -97.1724 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "idle"
+[sub_resource type="Animation" id=7]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -107,8 +105,7 @@ tracks/0/keys = {
 "values": [ Vector2( 92.4077, 633.386 ), Vector2( 93.8219, 687.126 ), Vector2( 92.4077, 633.386 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "ready"
+[sub_resource type="Animation" id=8]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -137,7 +134,7 @@ texture = ExtResource( 4 )
 position = Vector2( -50, 360 )
 amount = 20
 lifetime = 6.0
-process_material = SubResource( 4 )
+process_material = SubResource( 1 )
 texture = ExtResource( 6 )
 
 [node name="clouds" type="Particles2D" parent="background"]
@@ -147,7 +144,7 @@ amount = 13
 lifetime = 10.0
 preprocess = 10.0
 visibility_rect = Rect2( -100, -100, 2000, 200 )
-process_material = SubResource( 3 )
+process_material = SubResource( 2 )
 texture = ExtResource( 5 )
 
 [node name="cloud_cover" type="ColorRect" parent="background"]
@@ -164,7 +161,7 @@ __meta__ = {
 margin_top = 650.0
 margin_right = 1281.0
 margin_bottom = 701.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.687795, 0.572083, 0.710938, 1 )
 text = "Input Card"
 align = 1
@@ -173,7 +170,7 @@ __meta__ = {
 }
 
 [node name="ruready_anim" type="AnimationPlayer" parent="."]
-anims/ruready = SubResource( 2 )
+anims/ruready = SubResource( 4 )
 
 [node name="get_ready" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -277,9 +274,9 @@ hframes = 4
 
 [node name="player_anim" type="AnimationPlayer" parent="float_player"]
 autoplay = "ready"
-anims/fly_away = SubResource( 8 )
-anims/idle = SubResource( 6 )
-anims/ready = SubResource( 7 )
+anims/fly_away = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/ready = SubResource( 8 )
 
 [connection signal="animation_finished" from="ruready_anim" to="." method="_on_ruready_anim_animation_finished"]
 [connection signal="animation_finished" from="float_player/player_anim" to="." method="_on_player_anim_animation_finished"]

@@ -11,6 +11,6 @@ func spawn_bullet():
 	get_tree().call_group("objects", "add_child", bullet_inst)
 	
 
-func _on_spawn_anim_animation_finished(anim_name): 
+func _on_spawn_anim_animation_finished(_anim_name): 
 	spawn_bullet()
 	$spawn_anim.play("spawn")

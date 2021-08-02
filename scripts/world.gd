@@ -4,6 +4,7 @@ onready var boss_cards = $boss_cards
 var curvelength = 100
 
 func _ready():
+	print(global.ingame)
 	var r = 170
 	var newcurve = Curve2D.new()
 	newcurve.add_point(Vector2(r,0),Vector2(0,-r))

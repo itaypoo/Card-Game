@@ -171,7 +171,7 @@ func set_default_speed(speed):
 func _on_spawnpauuse_timer_timeout():
 	get_tree().paused = true
 
-func _on_rspawn_anim_animation_finished(anim_name):
+func _on_rspawn_anim_animation_finished(_anim_name):
 	get_tree().paused = false
 	is_paused = false
 	self.pause_mode = PAUSE_MODE_INHERIT
