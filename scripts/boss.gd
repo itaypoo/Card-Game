@@ -1,24 +1,17 @@
-extends Area2D
+extends "res://scripts/generic_boss.gd"
 
-var boss_hp = 100
-var speed_multiplier = 1
+var move_dir
+var moving = false
 
-func  _physics_process(_delta):
-	global.boss_pos = global_position
+func _on_jump_timer_timeout():
+	$jump_anim.play("jump")
+	moving = true
+	randomize()
+	move_dir = int(rand_range(0, 360))
 
-func hurt_boss(hp):
-	boss_hp -= hp
-	if boss_hp <= 0:
-		queue_free()
+func _on_jump_anim_animation_finished(anim_name):
+	moving = false
 
-func added_card(id):
-	var card = load(global.card_list[id])
-	card = card.instance()
-	$boss_cards.add_child(card)
-	
-	
-func add_hp(hp):
-	boss_hp += hp
-
-func set_speed(speed):
-	speed_multiplier = speed
+func _physics_process(_delta):
+	if moving:
+		position += Vector2(5 * speed_multiplier, 0).rotated(deg2rad(move_dir))

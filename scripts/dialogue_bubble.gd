@@ -8,7 +8,6 @@ var letter = 0
 signal dialogue_ended
 
 func _ready():
-	dialogue_start("Hello my name is yaron and i am a balon. Nice too meet you, do you want to see my pee pee?")
 	visible = false
 
 func dialogue_start(text = "Default text"):
