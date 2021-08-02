@@ -11,10 +11,8 @@ var active_cards = []
 var inverted_controls = false
 var ingame = false
 
-var score_p1 = 0
-var score_p2 = 0
-var score_p3 = 0
-var score_p4 = 0
+var player_scores = [480, 320, 180, 250]
+var player_names = ["", "", "", ""]
 
 ###############################################################################
 
