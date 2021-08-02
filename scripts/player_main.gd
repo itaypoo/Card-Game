@@ -132,6 +132,7 @@ func spawn_bullet():
 ##############################################################################
 
 func set_speed(speed, is_slow):
+	if move_speed < 0: speed *= 1
 	move_speed = speed
 	self.is_slow = is_slow
 
@@ -145,6 +146,7 @@ func add_pos(pos):
 
 func reverse_move_speed():
 	move_speed *= -1
+	default_speed *= -1
 
 func add_health(hp):
 	player_hp += hp
@@ -163,7 +165,7 @@ func set_gun_texture(path):
 	$gun/gun.texture = load(path)
 	
 func set_default_speed(speed):
-	print(speed)
+	if default_speed < 0: speed *= 1
 	default_speed = speed
 
 func _on_spawnpauuse_timer_timeout():
