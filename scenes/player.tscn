@@ -683,7 +683,6 @@ shape = SubResource( 2 )
 
 [node name="sprites" type="Node2D" parent="."]
 use_parent_material = true
-position = Vector2( 0, -500 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Sprite" type="Sprite" parent="sprites"]

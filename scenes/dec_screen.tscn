@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://textures/input_names/screen.png" type="Texture" id=1]
+[ext_resource path="res://textures/input_names/star.png" type="Texture" id=2]
+[ext_resource path="res://textures/input_names/line.png" type="Texture" id=3]
+[ext_resource path="res://textures/input_names/box.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.186047, 0.379845, 0.565891 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 550, 300, 1 )
+flag_disable_z = true
+direction = Vector3( 1, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = -100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = -45.0
+scale = 0.3
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Animation" id=4]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("star:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("star2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.7 ), Vector2( 0.7, 0.7 ), Vector2( 1, 1 ), Vector2( 0.7, 0.7 ) ]
+}
+
+[node name="screen" type="Node2D"]
+scale = Vector2( 0.67, 0.67 )
+
+[node name="back" type="ColorRect" parent="."]
+margin_left = -589.0
+margin_top = -328.0
+margin_right = 593.0
+margin_bottom = 331.0
+color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lines" type="Particles2D" parent="."]
+light_mask = 8
+position = Vector2( 84.5261, -81.7086 )
+amount = 5
+lifetime = 2.0
+process_material = SubResource( 3 )
+texture = ExtResource( 3 )
+
+[node name="blocker" type="Sprite" parent="."]
+self_modulate = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+position = Vector2( 442.46, 212.538 )
+rotation = 0.486601
+scale = Vector2( 0.93812, 0.989902 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -20.057 )
+
+[node name="blocker2" type="Sprite" parent="."]
+self_modulate = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+position = Vector2( -438.702, -148.564 )
+rotation = -0.345628
+scale = Vector2( 1.15457, 1.20333 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -20.057 )
+
+[node name="star" type="Sprite" parent="."]
+light_mask = 8
+position = Vector2( -437.75, -156.904 )
+rotation = -0.345628
+scale = Vector2( 1.19791, 1.19791 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -20.057 )
+
+[node name="star2" type="Sprite" parent="."]
+position = Vector2( 447.887, 214.742 )
+rotation = 0.445399
+scale = Vector2( 0.996857, 0.996857 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -20.057 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "anim"
+anims/anim = SubResource( 4 )
+
+[node name="screen" type="Sprite" parent="."]
+texture = ExtResource( 1 )

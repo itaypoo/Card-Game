@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/leaderboard.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://textures/input_names/pedastool.png" type="Texture" id=2]
 [ext_resource path="res://textures/player/leg_sheet.png" type="Texture" id=3]
 [ext_resource path="res://textures/player/body_sheet.png" type="Texture" id=4]
 [ext_resource path="res://textures/player/glasses.png" type="Texture" id=5]
@@ -10,13 +10,137 @@
 [ext_resource path="res://textures/player/skirt.png" type="Texture" id=8]
 [ext_resource path="res://textures/player/tie.png" type="Texture" id=9]
 [ext_resource path="res://textures/Bigboy.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scenes/dialogue_bubble.tscn" type="PackedScene" id=11]
+[ext_resource path="res://textures/input_names/lightbulb_bottom.png" type="Texture" id=12]
+[ext_resource path="res://textures/input_names/lightbulb.png" type="Texture" id=13]
+[ext_resource path="res://textures/input_names/bulbneck.png" type="Texture" id=14]
+[ext_resource path="res://textures/input_names/crowd2.png" type="Texture" id=15]
+[ext_resource path="res://textures/input_names/lighteffect.png" type="Texture" id=16]
+[ext_resource path="res://textures/input_names/vignette.png" type="Texture" id=17]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.689922, 0.930233 )
+colors = PoolColorArray( 0, 0.0390625, 1, 1, 0.03125, 0, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 640, 1, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 200, 0 )
+initial_velocity = 50.0
+angular_velocity = 130.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 12.0
+scale_random = 0.5
+color_ramp = SubResource( 4 )
+hue_variation = 0.47
+hue_variation_random = 1.0
 
 [sub_resource type="DynamicFont" id=1]
-size = 36
+size = 27
+outline_size = 4
+outline_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+use_filter = true
 font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 2, 0.5, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 460 ), Vector2( 640, 460 ), Vector2( 640, 430 ), Vector2( 640, 460 ), Vector2( 640, 460 ) ]
+}
 
 [node name="leaderboard" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="back" type="ColorRect" parent="."]
+margin_left = -6.0
+margin_top = -12.0
+margin_right = 1289.0
+margin_bottom = 733.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="confetti" type="Particles2D" parent="."]
+position = Vector2( 640, -33 )
+emitting = false
+amount = 100
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource( 5 )
+
+[node name="lightbulb1" type="Node2D" parent="."]
+position = Vector2( 9.33473, 673.749 )
+rotation = 0.344342
+
+[node name="lightbulb" type="Sprite" parent="lightbulb1"]
+position = Vector2( 0.38208, -69.2781 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 13 )
+
+[node name="lightbulb_bottom" type="Sprite" parent="lightbulb1/lightbulb"]
+modulate = Color( 1, 0.501961, 0.501961, 1 )
+show_behind_parent = true
+position = Vector2( 0.579396, -21.25 )
+scale = Vector2( 0.980589, 1 )
+texture = ExtResource( 12 )
+
+[node name="lighteffect" type="Sprite" parent="lightbulb1"]
+modulate = Color( 1.50196, 0, 0, 0.117647 )
+position = Vector2( -10.191, -458.328 )
+scale = Vector2( 0.8, 0.840361 )
+texture = ExtResource( 16 )
+
+[node name="bulbneck" type="Sprite" parent="lightbulb1"]
+position = Vector2( 0.350769, -20.959 )
+scale = Vector2( 1.3, 8.466 )
+texture = ExtResource( 14 )
+
+[node name="lightbulb2" type="Node2D" parent="."]
+position = Vector2( 1272.33, 673.749 )
+rotation = -0.34383
+
+[node name="lightbulb" type="Sprite" parent="lightbulb2"]
+position = Vector2( 0.38208, -69.2781 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 13 )
+
+[node name="lightbulb_bottom" type="Sprite" parent="lightbulb2/lightbulb"]
+modulate = Color( 1, 0.501961, 0.501961, 1 )
+show_behind_parent = true
+position = Vector2( 0.579396, -21.25 )
+scale = Vector2( 0.980589, 1 )
+texture = ExtResource( 12 )
+
+[node name="lighteffect" type="Sprite" parent="lightbulb2"]
+modulate = Color( 1.50196, 0, 0, 0.117647 )
+position = Vector2( -10.191, -458.328 )
+scale = Vector2( 0.8, 0.840361 )
+texture = ExtResource( 16 )
+
+[node name="bulbneck" type="Sprite" parent="lightbulb2"]
+position = Vector2( 0.350769, -20.959 )
+scale = Vector2( 1.3, 8.466 )
+texture = ExtResource( 14 )
 
 [node name="p1" type="Node2D" parent="."]
 
@@ -73,8 +197,10 @@ position = Vector2( -1.83333, -9.66667 )
 texture = ExtResource( 6 )
 
 [node name="pedestal" type="Sprite" parent="p1"]
-position = Vector2( -0.372932, 137.503 )
+position = Vector2( 0, 105 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, 730 )
 
 [node name="p1_label" type="Label" parent="p1"]
 visible = false
@@ -149,11 +275,6 @@ use_parent_material = true
 position = Vector2( -1.83333, -9.66667 )
 texture = ExtResource( 6 )
 
-[node name="pedestal" type="Sprite" parent="p2"]
-position = Vector2( -333.355, 72.8719 )
-texture = ExtResource( 2 )
-offset = Vector2( 334.839, 66.0424 )
-
 [node name="p2_label" type="Label" parent="p2"]
 visible = false
 margin_left = -134.0
@@ -168,6 +289,12 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="pedestal2" type="Sprite" parent="p2"]
+position = Vector2( -0.00012207, 105 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 730 )
 
 [node name="p3" type="Node2D" parent="."]
 
@@ -227,10 +354,6 @@ use_parent_material = true
 position = Vector2( -1.83333, -9.66667 )
 texture = ExtResource( 6 )
 
-[node name="pedestal" type="Sprite" parent="p3"]
-position = Vector2( -0.771912, 137.946 )
-texture = ExtResource( 2 )
-
 [node name="p3_label" type="Label" parent="p3"]
 visible = false
 margin_left = -134.0
@@ -245,6 +368,12 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="pedestal3" type="Sprite" parent="p3"]
+position = Vector2( -0.00012207, 105 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 730 )
 
 [node name="p4" type="Node2D" parent="."]
 
@@ -304,10 +433,6 @@ use_parent_material = true
 position = Vector2( -1.83333, -9.66667 )
 texture = ExtResource( 6 )
 
-[node name="pedestal" type="Sprite" parent="p4"]
-position = Vector2( 0.965881, 137.603 )
-texture = ExtResource( 2 )
-
 [node name="p4_label" type="Label" parent="p4"]
 visible = false
 margin_left = -134.0
@@ -322,3 +447,32 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="pedestal4" type="Sprite" parent="p4"]
+position = Vector2( -0.00012207, 105 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 730 )
+
+[node name="crowd" type="Sprite" parent="."]
+position = Vector2( 640, 460 )
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 15 )
+
+[node name="crowd_idle" type="AnimationPlayer" parent="crowd"]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="dialogue_bubble" parent="." instance=ExtResource( 11 )]
+
+[node name="vignette" type="Sprite" parent="."]
+position = Vector2( 145, 114 )
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 17 )
+
+[node name="vignette2" type="Sprite" parent="."]
+position = Vector2( 1135, 114 )
+scale = Vector2( -0.67, 0.67 )
+texture = ExtResource( 17 )
+
+[connection signal="dialogue_ended" from="dialogue_bubble" to="." method="_on_dialogue_bubble_dialogue_ended"]

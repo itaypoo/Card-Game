@@ -38,6 +38,7 @@ scale_random = 1.0
 
 [sub_resource type="DynamicFont" id=3]
 size = 50
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=4]
@@ -71,6 +72,7 @@ tracks/1/keys = {
 size = 100
 outline_size = 6
 outline_color = Color( 0.109804, 0.0431373, 0.0941176, 1 )
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=6]

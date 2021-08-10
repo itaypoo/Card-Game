@@ -44,6 +44,7 @@ func _physics_process(_delta):
 	if is_paused: return
 	global.player_pos = self.position
 	global.player_hp = player_hp
+	keep_in_bounds()
 	moving = false
 	
 	if Input.is_action_pressed("player_up"):
@@ -88,12 +89,21 @@ func _physics_process(_delta):
 	else: invis_anim.play("ready")
 	
 	gun.position = Vector2(-70, 0).rotated((position - get_global_mouse_position()).angle())
-	gun.look_at(get_global_mouse_position())
+	if not gun_auto_aim:
+		gun.look_at(get_global_mouse_position())
+	else: 
+		gun.look_at(global.boss_pos)
 	slow_particle.emitting = is_slow
 	if rad2deg((position - get_global_mouse_position()).angle()) > 90 or rad2deg((position - get_global_mouse_position()).angle()) < -90:
 		gun.scale.y = 1
 	else:
 		gun.scale.y = -1
+
+func keep_in_bounds():
+	if position.x > 1920: position.x = 1920
+	elif position.x < 0: position.x = 0
+	if position.y > 1080: position.y = 1080
+	elif position.y < 0: position.y = 0
 
 ##############################################################################
 
@@ -106,6 +116,7 @@ func hurt_player(hp):
 		global.set_hitstun(4)
 		global.set_screenshake(5)
 		if player_hp <= 0:
+			get_tree().call_group("winlose_screen", "lose_screen")
 			queue_free()
 
 ##############################################################################

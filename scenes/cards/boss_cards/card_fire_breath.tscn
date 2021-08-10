@@ -38,6 +38,7 @@ position = Vector2( 23, 0 )
 rotation = 0.000123019
 amount = 60
 lifetime = 2.5
+visibility_rect = Rect2( -500, -500, 1000, 1000 )
 local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 3 )

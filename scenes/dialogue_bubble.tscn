@@ -6,6 +6,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
+outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
@@ -22,11 +23,16 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( -2, -2 ),
 "update": 0,
-"values": [ Vector2( 0.733501, 0.7 ), Vector2( 0.744, 0.71 ) ]
+"values": [ Vector2( 0.73, 0.6 ), Vector2( 0.74, 0.6 ) ]
 }
 
 [node name="dialogue_bubble" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 637.617, 624.122 )
+scale = Vector2( 0.733052, 0.6 )
+texture = ExtResource( 3 )
 
 [node name="label" type="Label" parent="."]
 margin_left = 36.0
@@ -41,11 +47,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 637.617, 624.122 )
-scale = Vector2( 0.743242, 0.709278 )
-texture = ExtResource( 3 )
-
 [node name="idle_anim" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 2 )
@@ -54,7 +55,7 @@ anims/idle = SubResource( 2 )
 wait_time = 0.03
 
 [node name="end_timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

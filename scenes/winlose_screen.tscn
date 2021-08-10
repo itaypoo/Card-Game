@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/defeat.png" type="Texture" id=1]
+[ext_resource path="res://scripts/winlose_screen.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "play"
+length = 5.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 0.65, 0.8, 2.4, 3 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 2, 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 360, -70 ), Vector2( 360, 360 ), Vector2( 360, 330 ), Vector2( 360, 330 ), Vector2( 360, 360 ), Vector2( 360, 360 ), Vector2( 360, 800 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("text:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 10.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("back:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.65, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="winlose_screen" type="Node2D" groups=[
+"winlose_screen",
+]]
+script = ExtResource( 2 )
+
+[node name="back" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -43.0
+margin_top = -37.0
+margin_right = 1367.0
+margin_bottom = 761.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Sprite" parent="."]
+position = Vector2( 360, -70 )
+texture = ExtResource( 1 )
+offset = Vector2( 280, 0 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/play = SubResource( 1 )
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

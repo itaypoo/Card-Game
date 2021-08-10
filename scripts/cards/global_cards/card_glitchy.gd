@@ -6,7 +6,7 @@ onready var pause_timer = $pause_timer
 
 var old_pos = Vector2.ZERO
 
-var rng = Vector2(5, 15)
+var rng = Vector2(2, 10)
 
 func _ready():
 	randomize()

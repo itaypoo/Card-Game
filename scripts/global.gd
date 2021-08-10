@@ -4,7 +4,7 @@ var player_pos = Vector2.ZERO
 var boss_pos = Vector2.ZERO
 var player_hp = 0
 
-var current_player = 3
+var current_player = 1
 
 var active_cards = []
 
@@ -12,7 +12,7 @@ var inverted_controls = false
 var ingame = false
 
 var player_scores = [480, 320, 180, 250]
-var player_names = ["", "", "", ""]
+var player_names = ["P1", "P2", "P3", "P4"]
 
 ###############################################################################
 
@@ -67,9 +67,15 @@ func _physics_process(_delta):
 	
 	if ingame:
 		camera.position = global.player_pos
+		camera.smoothing_enabled = true
+		camera.limit_smoothed = true
 	else:
 		camera.position = Vector2(640, 360)
+		camera.smoothing_enabled = false
+		camera.limit_smoothed = false
+	
 	if screenshake > 0:
+		randomize()
 		camera.position += Vector2(clamp(screenshake, 0, 30), 0).rotated(deg2rad(rand_range(0, 360)))
 		screenshake -= 1
 

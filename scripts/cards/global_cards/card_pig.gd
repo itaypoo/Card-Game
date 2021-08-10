@@ -10,7 +10,7 @@ func _physics_process(_delta):
 	else:
 		spawn_pig()
 		randomize()
-		spawn_cd = rand_range(60, 300)
+		spawn_cd = rand_range(50, 150)
 
 func spawn_pig():
 	var pig_inst = pig.instance()

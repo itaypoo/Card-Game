@@ -11,6 +11,7 @@ func _on_jump_timer_timeout():
 
 func _on_jump_anim_animation_finished(anim_name):
 	moving = false
+	global.set_screenshake(70)
 
 func _physics_process(_delta):
 	if moving:

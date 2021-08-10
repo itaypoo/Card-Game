@@ -1,35 +1,231 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://input_names.gd" type="Script" id=1]
+[ext_resource path="res://scripts/input_names.gd" type="Script" id=1]
 [ext_resource path="res://textures/Bigboy.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/dialogue_bubble.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/input_names/stage.png" type="Texture" id=4]
+[ext_resource path="res://textures/input_names/crowd.png" type="Texture" id=5]
+[ext_resource path="res://textures/input_names/vignette.png" type="Texture" id=6]
+[ext_resource path="res://textures/logo.png" type="Texture" id=7]
+[ext_resource path="res://textures/input_names/lightbulb_bottom.png" type="Texture" id=8]
+[ext_resource path="res://textures/input_names/lighteffect.png" type="Texture" id=9]
+[ext_resource path="res://textures/input_names/lightbulb.png" type="Texture" id=10]
+[ext_resource path="res://textures/input_names/bulbneck.png" type="Texture" id=11]
+[ext_resource path="res://scenes/player_cutscene.tscn" type="PackedScene" id=12]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("lightbulb1/lighteffect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 0, 1, 1 ),
+"update": 0,
+"values": [ Color( 1.50196, 0, 0, 0.117647 ), Color( 1.50196, 0, 0, 0 ), Color( 1.50196, 0, 0, 0.117647 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("lightbulb2/lighteffect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 0, 1, 1 ),
+"update": 0,
+"values": [ Color( 1.50196, 0, 0, 0.117647 ), Color( 1.50196, 0, 0, 0 ), Color( 1.50196, 0, 0, 0.117647 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 1 ),
+"transitions": PoolRealArray( 0.5, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.668, 0.668 ), Vector2( 0.668, 0.668 ), Vector2( 0.7, 0.7 ), Vector2( 0.668, 0.668 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 1 ),
+"transitions": PoolRealArray( 0.5, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 640, 616 ), Vector2( 640, 616 ), Vector2( 640, 610 ), Vector2( 640, 616 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
 size = 40
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 size = 30
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 use_filter = true
 font_data = ExtResource( 2 )
 
+[sub_resource type="Environment" id=7]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.7
+glow_strength = 0.9
+glow_blend_mode = 1
+glow_hdr_threshold = 1.5
+
 [node name="input_names" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="cosmetics" type="Node2D" parent="."]
+
+[node name="back" type="ColorRect" parent="cosmetics"]
+margin_left = -6.0
+margin_top = -12.0
+margin_right = 1289.0
+margin_bottom = 733.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lightbulb1" type="Node2D" parent="cosmetics"]
+position = Vector2( -2.00203, 594.973 )
+rotation = 0.523599
+
+[node name="lightbulb" type="Sprite" parent="cosmetics/lightbulb1"]
+position = Vector2( 0.38208, -69.2781 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 10 )
+
+[node name="lightbulb_bottom" type="Sprite" parent="cosmetics/lightbulb1/lightbulb"]
+modulate = Color( 1, 0.501961, 0.501961, 1 )
+show_behind_parent = true
+position = Vector2( 0.579396, -21.25 )
+scale = Vector2( 0.980589, 1 )
+texture = ExtResource( 8 )
+
+[node name="lighteffect" type="Sprite" parent="cosmetics/lightbulb1"]
+modulate = Color( 1.50196, 0, 0, 0.117647 )
+position = Vector2( -10.191, -458.328 )
+scale = Vector2( 0.8, 0.840361 )
+texture = ExtResource( 9 )
+
+[node name="bulbneck" type="Sprite" parent="cosmetics/lightbulb1"]
+position = Vector2( 0.350769, -20.959 )
+scale = Vector2( 1.3, 8.466 )
+texture = ExtResource( 11 )
+
+[node name="lightbulb2" type="Node2D" parent="cosmetics"]
+position = Vector2( 1281, 608.973 )
+rotation = -0.481711
+
+[node name="lightbulb" type="Sprite" parent="cosmetics/lightbulb2"]
+position = Vector2( 0.38208, -69.2781 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 10 )
+
+[node name="lightbulb_bottom" type="Sprite" parent="cosmetics/lightbulb2/lightbulb"]
+modulate = Color( 1, 0.501961, 0.501961, 1 )
+show_behind_parent = true
+position = Vector2( 0.579396, -21.25 )
+scale = Vector2( 0.980589, 1 )
+texture = ExtResource( 8 )
+
+[node name="lighteffect" type="Sprite" parent="cosmetics/lightbulb2"]
+modulate = Color( 1.50196, 0, 0, 0.117647 )
+position = Vector2( -11.5977, -456.876 )
+scale = Vector2( 0.8, 0.835626 )
+texture = ExtResource( 9 )
+
+[node name="bulbneck" type="Sprite" parent="cosmetics/lightbulb2"]
+position = Vector2( 0.350769, -20.959 )
+scale = Vector2( 1.3, 8.466 )
+texture = ExtResource( 11 )
+
+[node name="light_idle" type="AnimationPlayer" parent="cosmetics"]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+
+[node name="stage" type="Sprite" parent="cosmetics"]
+position = Vector2( 640, 580 )
+scale = Vector2( 0.675, 0.675 )
+texture = ExtResource( 4 )
+
+[node name="player_cutscene" parent="cosmetics" instance=ExtResource( 12 )]
+position = Vector2( 640, 500 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="crowd" type="Sprite" parent="cosmetics"]
+position = Vector2( 640, 616 )
+scale = Vector2( 0.668, 0.668 )
+texture = ExtResource( 5 )
+
+[node name="crowd_idle" type="AnimationPlayer" parent="cosmetics/crowd"]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="vignette" type="Sprite" parent="cosmetics"]
+position = Vector2( 145, 114 )
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 6 )
+
+[node name="vignette2" type="Sprite" parent="cosmetics"]
+position = Vector2( 1135, 114 )
+scale = Vector2( -0.67, 0.67 )
+texture = ExtResource( 6 )
+
+[node name="logo" type="Sprite" parent="cosmetics"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+position = Vector2( 640, 190 )
+scale = Vector2( 0.904054, 0.904054 )
+texture = ExtResource( 7 )
+
+[node name="logo_idle" type="AnimationPlayer" parent="cosmetics/logo"]
+autoplay = "idle"
+anims/idle = SubResource( 3 )
 
 [node name="name_textbox" type="Node2D" parent="."]
 visible = false
 
 [node name="background" type="ColorRect" parent="name_textbox"]
-margin_left = -8.0
-margin_top = 229.0
-margin_right = 1289.0
-margin_bottom = 449.0
-color = Color( 0, 0, 0, 0.0784314 )
+margin_left = 466.0
+margin_top = 252.0
+margin_right = 805.0
+margin_bottom = 441.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -40,7 +236,7 @@ margin_top = 309.0
 margin_right = 778.0
 margin_bottom = 379.0
 rect_pivot_offset = Vector2( 131.469, 32.0907 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,7 +246,7 @@ margin_left = 548.802
 margin_top = 272.282
 margin_right = 724.802
 margin_bottom = 302.282
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Enter P1 Name"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -61,13 +257,17 @@ margin_left = 593.161
 margin_top = 390.807
 margin_right = 683.161
 margin_bottom = 413.807
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Done"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="dialogue_bubble" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="glow" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )
 
 [connection signal="pressed" from="name_textbox/done_btn" to="." method="_on_done_btn_pressed"]
 [connection signal="dialogue_ended" from="dialogue_bubble" to="." method="_on_dialogue_bubble_dialogue_ended"]

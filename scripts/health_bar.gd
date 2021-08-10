@@ -5,6 +5,8 @@ var player_ticks = 0
 
 export (bool) var sticks_to_player = false
 
+func _ready(): label.text = str(global.player_hp)
+
 func _physics_process(_delta):
 	label.text = str(global.player_hp)
 	

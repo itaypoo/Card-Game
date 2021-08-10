@@ -3,4 +3,5 @@
 [ext_resource path="res://scripts/cards/global_cards/card_lightning.gd" type="Script" id=1]
 
 [node name="card_lightning" type="Node2D"]
+scale = Vector2( 1, 1.1 )
 script = ExtResource( 1 )

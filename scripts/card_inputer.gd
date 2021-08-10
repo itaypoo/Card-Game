@@ -6,9 +6,8 @@ onready var text = $text
 var input = 0
 var cards_spawned = 0
 
-export (bool) var spawn_random = false
-
 func _ready():
+	global.active_cards = []
 	var card = 0
 	$float_player/sprites_player/leg_left.frame = global.current_player - 1
 	$float_player/sprites_player/leg_right.frame = global.current_player - 1
