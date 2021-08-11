@@ -7,6 +7,7 @@ var input = 0
 var cards_spawned = 0
 
 func _ready():
+	transition.start_music("res://sound/music/music_in_space.mp3")
 	global.active_cards = []
 	var card = 0
 	$float_player/sprites_player/leg_left.frame = global.current_player - 1
@@ -61,6 +62,10 @@ func spawn_card(id):
 	card_inst.position = Vector2((320 * cards_spawned) - 160, 360)
 	card_inst.does_spawn_anim = true
 	add_child(card_inst)
+	
+	randomize()
+	$sfx_cardflip.pitch_scale = rand_range(0.8, 1.2)
+	$sfx_cardflip.play()
 	
 	if cards_spawned >= 4: 
 		$ruready_anim.play("ruready")

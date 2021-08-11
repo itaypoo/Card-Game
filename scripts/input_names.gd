@@ -30,7 +30,7 @@ var dialogue_stage = 0
 
 func _ready(): 
 	next_stage()
-	
+	transition.start_music("res://sound/music/music_big_stage.mp3")
 	global.player_scores = [0, 0, 0, 0]
 
 func _on_dialogue_bubble_dialogue_ended():
@@ -62,6 +62,9 @@ func next_stage():
 			bubble.dialogue_start(str("Please welcome our ", num_to_words, " contestent, ", global.player_names[current_player-1], "!"))
 		3:
 			$cosmetics/player_cutscene.join(current_player)
+			randomize()
+			$crowd.pitch_scale = rand_range(0.8, 1.2)
+			$crowd.play()
 			randomize()
 			var hight : float = int(rand_range(000, 60))
 			hight = hight / 10

@@ -23,6 +23,7 @@ var speed_array = [3, 3, 3, 3]
 var dialogue_stage = 0
 
 func _ready():
+	transition.start_music("res://sound/music/music_dramatic_buildup.mp3")
 	# Vars:
 	p1_score = global.player_scores[0]
 	p2_score = global.player_scores[1]
@@ -97,6 +98,8 @@ func _physics_process(_delta):
 		if dialogue_stage == 0:
 			dialogue_stage += 1
 			$confetti.emitting = true
+			$cheer.play()
+			$horn.play()
 			randomize()
 			$dialogue_bubble.dialogue_start(str( "Wow! that was ", adj_list[int(rand_range(0, adj_list.size()))]))
 

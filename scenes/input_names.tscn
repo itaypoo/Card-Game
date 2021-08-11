@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/input_names.gd" type="Script" id=1]
 [ext_resource path="res://textures/Bigboy.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://textures/input_names/lightbulb.png" type="Texture" id=10]
 [ext_resource path="res://textures/input_names/bulbneck.png" type="Texture" id=11]
 [ext_resource path="res://scenes/player_cutscene.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sound/crowd_cheer.wav" type="AudioStream" id=13]
+[ext_resource path="res://sound/crowd_ambience.mp3" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -268,6 +270,16 @@ visible = false
 
 [node name="glow" type="WorldEnvironment" parent="."]
 environment = SubResource( 7 )
+
+[node name="crowd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0
+pitch_scale = 0.84
+
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="name_textbox/done_btn" to="." method="_on_done_btn_pressed"]
 [connection signal="dialogue_ended" from="dialogue_bubble" to="." method="_on_dialogue_bubble_dialogue_ended"]

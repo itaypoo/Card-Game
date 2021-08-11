@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/leaderboard.gd" type="Script" id=1]
 [ext_resource path="res://textures/input_names/pedastool.png" type="Texture" id=2]
@@ -17,15 +17,25 @@
 [ext_resource path="res://textures/input_names/crowd2.png" type="Texture" id=15]
 [ext_resource path="res://textures/input_names/lighteffect.png" type="Texture" id=16]
 [ext_resource path="res://textures/input_names/vignette.png" type="Texture" id=17]
+[ext_resource path="res://sound/crowd_cheer.wav" type="AudioStream" id=18]
+[ext_resource path="res://sound/party_horn.wav" type="AudioStream" id=19]
+[ext_resource path="res://sound/crowd_ambience.mp3" type="AudioStream" id=20]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="DynamicFont" id=4]
+size = 27
+outline_size = 4
+outline_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+use_filter = true
+font_data = ExtResource( 10 )
+
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.689922, 0.930233 )
 colors = PoolColorArray( 0, 0.0390625, 1, 1, 0.03125, 0, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 640, 1, 1 )
 flag_disable_z = true
@@ -39,19 +49,11 @@ angle = 720.0
 angle_random = 1.0
 scale = 12.0
 scale_random = 0.5
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.47
 hue_variation_random = 1.0
 
-[sub_resource type="DynamicFont" id=1]
-size = 27
-outline_size = 4
-outline_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
-use_filter = true
-font_data = ExtResource( 10 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -78,15 +80,6 @@ color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="confetti" type="Particles2D" parent="."]
-position = Vector2( 640, -33 )
-emitting = false
-amount = 100
-lifetime = 3.0
-one_shot = true
-explosiveness = 0.8
-process_material = SubResource( 5 )
 
 [node name="lightbulb1" type="Node2D" parent="."]
 position = Vector2( 9.33473, 673.749 )
@@ -209,7 +202,7 @@ margin_top = 73.0
 margin_right = 134.0
 margin_bottom = 114.0
 rect_pivot_offset = Vector2( 23.173, 15.6281 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Score: 1"
 align = 1
 valign = 1
@@ -282,7 +275,7 @@ margin_top = 73.0
 margin_right = 134.0
 margin_bottom = 114.0
 rect_pivot_offset = Vector2( 23.173, 15.6281 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Score: 1"
 align = 1
 valign = 1
@@ -361,7 +354,7 @@ margin_top = 73.0
 margin_right = 134.0
 margin_bottom = 114.0
 rect_pivot_offset = Vector2( 23.173, 15.6281 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Score: 1"
 align = 1
 valign = 1
@@ -440,7 +433,7 @@ margin_top = 73.0
 margin_right = 134.0
 margin_bottom = 114.0
 rect_pivot_offset = Vector2( 23.173, 15.6281 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Score: 1"
 align = 1
 valign = 1
@@ -454,6 +447,15 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, 730 )
 
+[node name="confetti" type="Particles2D" parent="."]
+position = Vector2( 640, -33 )
+emitting = false
+amount = 150
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.6
+process_material = SubResource( 3 )
+
 [node name="crowd" type="Sprite" parent="."]
 position = Vector2( 640, 460 )
 scale = Vector2( 0.67, 0.67 )
@@ -461,7 +463,7 @@ texture = ExtResource( 15 )
 
 [node name="crowd_idle" type="AnimationPlayer" parent="crowd"]
 autoplay = "idle"
-anims/idle = SubResource( 2 )
+anims/idle = SubResource( 5 )
 
 [node name="dialogue_bubble" parent="." instance=ExtResource( 11 )]
 
@@ -474,5 +476,16 @@ texture = ExtResource( 17 )
 position = Vector2( 1135, 114 )
 scale = Vector2( -0.67, 0.67 )
 texture = ExtResource( 17 )
+
+[node name="cheer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="horn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -5.0
+autoplay = true
 
 [connection signal="dialogue_ended" from="dialogue_bubble" to="." method="_on_dialogue_bubble_dialogue_ended"]

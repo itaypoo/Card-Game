@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/card_inputer.gd" type="Script" id=1]
 [ext_resource path="res://textures/Bigboy.ttf" type="DynamicFontData" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://textures/player/leg_sheet.png" type="Texture" id=13]
 [ext_resource path="res://textures/player/body_sheet.png" type="Texture" id=14]
 [ext_resource path="res://textures/player/head_sheet.png" type="Texture" id=15]
+[ext_resource path="res://sound/card_flip.wav" type="AudioStream" id=16]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -279,6 +280,11 @@ autoplay = "ready"
 anims/fly_away = SubResource( 6 )
 anims/idle = SubResource( 7 )
 anims/ready = SubResource( 8 )
+
+[node name="sfx_cardflip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = 10.0
+pitch_scale = 1.2
 
 [connection signal="animation_finished" from="ruready_anim" to="." method="_on_ruready_anim_animation_finished"]
 [connection signal="animation_finished" from="float_player/player_anim" to="." method="_on_player_anim_animation_finished"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/crowd_ambience.mp3-d571a21e285400a8cbc44bc9e9d93ef6.mp3str"
+
+[deps]
+
+source_file="res://sound/crowd_ambience.mp3"
+dest_files=[ "res://.import/crowd_ambience.mp3-d571a21e285400a8cbc44bc9e9d93ef6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

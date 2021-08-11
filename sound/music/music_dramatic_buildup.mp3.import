@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/music_dramatic_buildup.mp3-c7218667f4ff987a1e5b4ea2116b207e.mp3str"
+
+[deps]
+
+source_file="res://sound/music/music_dramatic_buildup.mp3"
+dest_files=[ "res://.import/music_dramatic_buildup.mp3-c7218667f4ff987a1e5b4ea2116b207e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

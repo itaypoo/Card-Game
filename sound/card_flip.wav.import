@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/card_flip.wav-267081e0f994391f99130cd3304b25f1.sample"
+
+[deps]
+
+source_file="res://sound/card_flip.wav"
+dest_files=[ "res://.import/card_flip.wav-267081e0f994391f99130cd3304b25f1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
