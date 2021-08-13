@@ -36,13 +36,14 @@ func _ready():
 	$sprites/head.frame = global.current_player - 1
 	$sprites/body.frame = global.current_player - 1
 	$gun/gun.frame = global.current_player - 1
+	get_tree().paused = false
 	self.pause_mode = PAUSE_MODE_PROCESS
 
 ##############################################################################
 
 func _physics_process(_delta):
-	if is_paused: return
 	global.player_pos = self.position
+	if is_paused: return
 	global.player_hp = player_hp
 	keep_in_bounds()
 	moving = false
@@ -116,6 +117,7 @@ func hurt_player(hp):
 		global.set_hitstun(4)
 		global.set_screenshake(5)
 		if player_hp <= 0:
+			get_tree().call_group("boss", "player_died")
 			get_tree().call_group("winlose_screen", "lose_screen")
 			queue_free()
 

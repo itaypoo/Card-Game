@@ -36,6 +36,7 @@ tracks/0/keys = {
 }
 
 [node name="transition" type="Node2D"]
+pause_mode = 2
 z_index = 100
 script = ExtResource( 1 )
 

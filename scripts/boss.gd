@@ -3,6 +3,9 @@ extends "res://scripts/generic_boss.gd"
 var move_dir
 var moving = false
 
+func _ready():
+	boss_hp = 300
+
 func _on_jump_timer_timeout():
 	$jump_anim.play("jump")
 	moving = true

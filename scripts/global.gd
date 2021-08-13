@@ -11,7 +11,7 @@ var active_cards = []
 var inverted_controls = false
 var ingame = false
 
-var player_scores = [480, 320, 180, 250]
+var player_scores = [10, 10, 10, 10]
 var player_names = ["P1", "P2", "P3", "P4"]
 
 ###############################################################################
@@ -60,10 +60,11 @@ func _ready():
 
 	
 func _physics_process(_delta):
-	if hitstun > 0: 
+	if hitstun > 1: 
 		get_tree().paused = true
 		hitstun -= 1
-	else: get_tree().paused = false
+	else: 
+		if hitstun == 1: get_tree().paused = false
 	
 	if ingame:
 		camera.position = global.player_pos
