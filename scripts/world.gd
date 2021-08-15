@@ -3,6 +3,8 @@ extends Node2D
 onready var boss_cards = $boss_cards
 var curvelength = 100
 
+var bosses_path = ["res://scenes/boss_type_cat.tscn", "res://scenes/boss_type_eyemonster.tscn"]
+
 func _ready():
 	global.ingame = true
 	var r = 170
@@ -22,6 +24,13 @@ func _ready():
 	
 	for card in global.active_cards:
 		added_card(card)
+	
+	randomize()
+	var boss_type = int(rand_range(0, bosses_path.size()))
+	var boss_inst = load(bosses_path[boss_type])
+	boss_inst = boss_inst.instance()
+	boss_inst.position = Vector2(960, 540)
+	$objects.add_child(boss_inst)
 
 func added_card(id):
 	if (id % 10) == 2:

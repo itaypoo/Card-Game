@@ -46,7 +46,8 @@ tracks/1/keys = {
 [node name="sprite_card_generator" type="Node2D"]
 scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 6 )
-card_id = 54
+card_id = 12
+generate_pngs = true
 
 [node name="back" type="Sprite" parent="."]
 texture = ExtResource( 3 )
@@ -102,3 +103,8 @@ __meta__ = {
 anims/spawn = SubResource( 3 )
 
 [node name="pos_tween" type="Tween" parent="."]
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
