@@ -26,7 +26,13 @@ func _on_request_completed(result, response_code, headers, body, request_type):
 			request_types.DENY_PHONE:
 				var amount = 0
 				for node in get_node("../").get_children():
-					if not node.name == "title"and not node == self: amount+=1
+					if not node.name == "title" and not node == self: amount+=1
+				if amount == 0: get_node("../").visible = false
+				queue_free()
+			request_types.REMOVE_PHONE:
+				var amount = 0
+				for node in get_node("../").get_children():
+					if not node.name == "title" and not node == self: amount+=1
 				if amount == 0: get_node("../").visible = false
 				queue_free()
 			_:
@@ -50,6 +56,7 @@ func _on_allow_button_down():
 
 
 func _on_deny_button_down():
+	print(state)
 	if state == states.WAITING:
 		reconnect(request_types.DENY_PHONE)
 		$HTTPRequest.request(global.domain + "denyphone?" + 
