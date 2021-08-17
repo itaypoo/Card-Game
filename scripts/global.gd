@@ -14,6 +14,16 @@ var ingame = false
 var player_scores = [10, 10, 10, 10]
 var player_names = ["P1", "P2", "P3", "P4"]
 
+# Server:
+#var domain = "http://localhost:8080/"
+var domain = "http://deltacube.network:8083/"
+var user = "CardGame1@"
+var password = "qpEvsnK98JfhHgCd"
+
+var game_id = -1
+
+var shutting_down = false
+
 ###############################################################################
 
 # Card ID : Card Path
@@ -57,7 +67,7 @@ var hitstun = 0
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
-
+	get_tree().set_auto_accept_quit(false)
 	
 func _physics_process(_delta):
 	if hitstun > 1: 
@@ -92,3 +102,13 @@ func get_zero_pos():
 	var x = stepify(camera.get_camera_screen_center().x, 0.1)
 	var y = stepify(camera.get_camera_screen_center().y, 0.1)
 	return Vector2(x, y) - Vector2(1280, 720)/2
+	
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		shutting_down = true
+		$HTTPRequest.request(global.domain + "removegame?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
+
+
+func _on_request_completed(result, response_code, headers, body):
+	get_tree().quit()

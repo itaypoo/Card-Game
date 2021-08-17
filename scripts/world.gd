@@ -3,7 +3,7 @@ extends Node2D
 onready var boss_cards = $boss_cards
 var curvelength = 100
 
-var bosses_path = ["res://scenes/boss_type_cat.tscn", "res://scenes/boss_type_eyemonster.tscn"]
+var bosses_path = ["res://scenes/boss_type_cat.tscn", "res://scenes/boss_type_cat.tscn"]
 
 func _ready():
 	global.ingame = true
@@ -31,6 +31,9 @@ func _ready():
 	boss_inst = boss_inst.instance()
 	boss_inst.position = Vector2(960, 540)
 	$objects.add_child(boss_inst)
+	
+	$HTTPRequest_disable.request(global.domain + "disablecards?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
+	$HTTPRequest_clear.request(global.domain + "cleargamecards?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
 
 func added_card(id):
 	if (id % 10) == 2:

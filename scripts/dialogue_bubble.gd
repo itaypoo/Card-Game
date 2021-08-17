@@ -1,3 +1,4 @@
+
 extends Node2D
 
 onready var label = $label
@@ -9,6 +10,11 @@ signal dialogue_ended
 
 func _ready():
 	visible = false
+
+func _physics_process(_delta):
+	if Input.is_action_just_pressed("skip_text"):
+		$end_timer.wait_time = 0.1
+		letter = text.length() - 1
 
 func dialogue_start(text = "Default text"):
 	visible = true
@@ -32,5 +38,6 @@ func _on_timer_timeout():
 	letter += 1
 
 func _on_end_timer_timeout():
+	$end_timer.wait_time = 4
 	emit_signal("dialogue_ended")
 	visible = false

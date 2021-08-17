@@ -537,3 +537,7 @@ curve = null
 [node name="health_bar" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="winlose_screen" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="HTTPRequest_disable" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_clear" type="HTTPRequest" parent="."]

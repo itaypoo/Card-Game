@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://textures/deny.png" type="Texture" id=1]
+[ext_resource path="res://textures/allow.png" type="Texture" id=2]
+[ext_resource path="res://textures/Kanit-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/phone.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 3 )
+
+[node name="phone" type="HBoxContainer"]
+margin_right = 254.0
+margin_bottom = 38.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="phone_name" type="Label" parent="."]
+margin_right = 158.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "PHONE NAME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="allow" type="Button" parent="."]
+margin_left = 162.0
+margin_right = 206.0
+margin_bottom = 38.0
+icon = ExtResource( 2 )
+flat = true
+
+[node name="deny" type="Button" parent="."]
+margin_left = 210.0
+margin_right = 254.0
+margin_bottom = 38.0
+icon = ExtResource( 1 )
+flat = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="button_down" from="allow" to="." method="_on_allow_button_down"]
+[connection signal="button_down" from="deny" to="." method="_on_deny_button_down"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_request_completed"]

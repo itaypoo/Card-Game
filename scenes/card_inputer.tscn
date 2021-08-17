@@ -286,5 +286,10 @@ stream = ExtResource( 16 )
 volume_db = 10.0
 pitch_scale = 1.2
 
+[node name="HTTPRequest_card" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_game" type="HTTPRequest" parent="."]
+
 [connection signal="animation_finished" from="ruready_anim" to="." method="_on_ruready_anim_animation_finished"]
 [connection signal="animation_finished" from="float_player/player_anim" to="." method="_on_player_anim_animation_finished"]
+[connection signal="request_completed" from="HTTPRequest_card" to="." method="_on_request_completed"]
