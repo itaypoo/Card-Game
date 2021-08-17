@@ -4,7 +4,7 @@
 [ext_resource path="res://textures/bosses/eyemonster/body.png" type="Texture" id=2]
 [ext_resource path="res://textures/bosses/eyemonster/eye.png" type="Texture" id=3]
 [ext_resource path="res://textures/cards/global_cards/pig_explosion_particle.png" type="Texture" id=4]
-[ext_resource path="res://textures/bosses/eyemonster/icon.png" type="Texture" id=5]
+[ext_resource path="res://textures/bosses/eyemonster/eye_icon.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 97.5691
@@ -203,6 +203,8 @@ autostart = true
 
 [node name="teleport_anim" type="AnimationPlayer" parent="."]
 anims/teleport = SubResource( 15 )
+
+[node name="ready_anim" type="AnimationPlayer" parent="."]
 
 [connection signal="timeout" from="teleport_timer" to="." method="_on_teleport_timer_timeout"]
 [connection signal="animation_finished" from="teleport_anim" to="." method="_on_teleport_anim_animation_finished"]

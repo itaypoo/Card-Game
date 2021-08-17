@@ -3,7 +3,7 @@ extends Node2D
 onready var boss_cards = $boss_cards
 var curvelength = 100
 
-var bosses_path = ["res://scenes/boss_type_cat.tscn", "res://scenes/boss_type_cat.tscn"]
+var bosses_path = ["res://scenes/boss_type_cat.tscn", "res://scenes/boss_type_eyemonster.tscn"]
 
 func _ready():
 	global.ingame = true

@@ -13,7 +13,7 @@ var active_cards = []
 var inverted_controls = false
 var ingame = false
 
-var player_scores = [10, 10, 10, 10]
+var player_scores = [50, 100, 150, 200]
 var player_names = ["P1", "P2", "P3", "P4"]
 
 # Server:
