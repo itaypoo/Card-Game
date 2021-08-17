@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://textures/playstyle/keyboard.png" type="Texture" id=1]
+[ext_resource path="res://textures/playstyle/phone.png" type="Texture" id=2]
+[ext_resource path="res://textures/Bigboy.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/chose_play_style.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="chose_play_style" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="back" type="ColorRect" parent="."]
+margin_left = -17.0
+margin_top = -15.0
+margin_right = 1294.0
+margin_bottom = 731.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+margin_left = 176.199
+margin_top = 86.7646
+margin_right = 1102.2
+margin_bottom = 157.765
+custom_fonts/font = SubResource( 1 )
+text = "Please select your input method."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="key_btn" type="TextureButton" parent="."]
+margin_left = 148.0
+margin_top = 193.0
+margin_right = 489.0
+margin_bottom = 535.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 170, 170 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 1 )
+texture_disabled = ExtResource( 1 )
+texture_focused = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="key_desc" type="Label" parent="."]
+margin_left = 172.0
+margin_top = 534.0
+margin_right = 468.0
+margin_bottom = 827.0
+custom_fonts/font = SubResource( 2 )
+text = "Input cards by typing their ID with the keyboard."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="app_btn" type="TextureButton" parent="."]
+margin_left = 796.0
+margin_top = 193.0
+margin_right = 1137.0
+margin_bottom = 535.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 170, 170 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="app_desc" type="Label" parent="."]
+margin_left = 823.0
+margin_top = 534.0
+margin_right = 1119.0
+margin_bottom = 827.0
+custom_fonts/font = SubResource( 2 )
+text = "Input cards by scanning their barcode with the Boss Cards Companion App"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="key_btn" to="." method="_on_key_btn_pressed"]
+[connection signal="pressed" from="app_btn" to="." method="_on_app_btn_pressed"]

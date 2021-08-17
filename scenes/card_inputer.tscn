@@ -172,6 +172,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="text_app" type="Label" parent="."]
+margin_top = 650.0
+margin_right = 1281.0
+margin_bottom = 701.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.687795, 0.572083, 0.710938, 1 )
+text = "Scan cards using the app"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ruready_anim" type="AnimationPlayer" parent="."]
 anims/ruready = SubResource( 4 )
 

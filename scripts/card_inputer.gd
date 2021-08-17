@@ -19,17 +19,26 @@ func _ready():
 	$float_player/sprites_player/hnad_sheet.frame = global.current_player - 1
 	$float_player/sprites_player/hnad_sheet2.frame = global.current_player - 1
 	$HTTPRequest_game.request(global.domain + "enablecards?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
+	
+	if global.play_style == "app": 
+		text.visible = false
+		$text_app.visible = true
+	else: 
+		text.visible = true
+		$text_app.visible = false
 
 func _physics_process(_delta):
-	if request_cd >= 30:
-		request_cd = 0
-		if $HTTPRequest_card.get_http_client_status() == HTTPClient.STATUS_DISCONNECTED:
-			$HTTPRequest_card.request(global.domain + "getcards?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
-	else:
-		request_cd+=1
+	if global.play_style == "app":
+		if request_cd >= 30:
+			request_cd = 0
+			if $HTTPRequest_card.get_http_client_status() == HTTPClient.STATUS_DISCONNECTED:
+				$HTTPRequest_card.request(global.domain + "getcards?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
+		else:
+			request_cd+=1
 
 func _input(event):
 	if cards_spawned >= 4: return
+	if global.play_style == "app": return
 	
 	if event is InputEventKey:
 		if event.pressed:
