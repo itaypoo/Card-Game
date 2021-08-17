@@ -13,8 +13,9 @@ func _ready():
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("skip_text"):
-		$end_timer.wait_time = 0.1
-		letter = text.length() - 1
+		$end_timer.wait_time = 1.5
+		label.text = text
+		letter = text.length()
 
 func dialogue_start(text = "Default text"):
 	visible = true

@@ -9,6 +9,7 @@ enum request_types{AVAILABLE_GAME, ADD_GAME, REMOVE_GAME, WAITING_PHONES, ALLOWE
 var phone_scene = preload("res://scenes/phone.tscn")
 
 func _ready():
+	transition.start_music("res://sound/music/waitingjazz_soft.mp3")
 	$HTTPRequest.connect("request_completed", self, "_on_request_completed", [request_types.AVAILABLE_GAME])
 	$HTTPRequest.request(global.domain + "availablegame?" + "user=" + global.user + "&pass=" + global.password)
 

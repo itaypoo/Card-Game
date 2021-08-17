@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/waitingjazz_soft.mp3-9bde711ed34c7d5bea487fc5537aa921.mp3str"
+
+[deps]
+
+source_file="res://sound/music/waitingjazz_soft.mp3"
+dest_files=[ "res://.import/waitingjazz_soft.mp3-9bde711ed34c7d5bea487fc5537aa921.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
