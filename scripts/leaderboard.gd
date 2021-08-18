@@ -16,7 +16,7 @@ var p3_final_y = 0
 var p4_final_y = 0
 
 var time = 0
-var max_score = 250
+var max_score = 600
 var max_y = 650
 
 var speed_array = [3, 3, 3, 3]
