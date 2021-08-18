@@ -69,7 +69,6 @@ var hitstun = 0
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	get_tree().set_auto_accept_quit(false)
 	
 func _physics_process(_delta):
 	if hitstun > 1: 
@@ -107,9 +106,10 @@ func get_zero_pos():
 	
 
 func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		shutting_down = true
-		$HTTPRequest.request(global.domain + "removegame?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
+	if play_style == "app":
+		if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+			shutting_down = true
+			$HTTPRequest.request(global.domain + "removegame?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
 
 
 func _on_request_completed(result, response_code, headers, body):
