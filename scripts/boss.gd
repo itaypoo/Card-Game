@@ -14,8 +14,7 @@ func _on_jump_anim_animation_finished(anim_name):
 	elif anim_name == "wait":
 		$jump_anim.play("jump")
 		moving = true
-		randomize()
-		move_dir = int(rand_range(0, 360))
+		move_dir = (position - global.player_pos).angle()
 
 func _physics_process(_delta):
 	if moving:

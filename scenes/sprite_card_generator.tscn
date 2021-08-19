@@ -47,7 +47,6 @@ tracks/1/keys = {
 scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 6 )
 card_id = 12
-generate_pngs = true
 
 [node name="back" type="Sprite" parent="."]
 texture = ExtResource( 3 )

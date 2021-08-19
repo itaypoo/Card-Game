@@ -5,7 +5,7 @@ var names = ["Coconut Gun", "Electro Fight", "Funky Groove", "Hishgoooooooz", "T
 
 func _ready():
 	randomize()
-	var songid = int(rand_range(0, 0))
+	var songid = int(rand_range(0, songs.size()))
 	transition.start_music(songs[songid])
 	$label.text = str("Now Playing: ", names[songid])
 
