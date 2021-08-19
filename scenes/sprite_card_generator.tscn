@@ -47,6 +47,7 @@ tracks/1/keys = {
 scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 6 )
 card_id = 12
+generate_pngs = true
 
 [node name="back" type="Sprite" parent="."]
 texture = ExtResource( 3 )
@@ -104,6 +105,6 @@ anims/spawn = SubResource( 3 )
 [node name="pos_tween" type="Tween" parent="."]
 
 [node name="timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.3
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

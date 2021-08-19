@@ -4,7 +4,7 @@ export(int) var card_id
 export(bool) var does_spawn_anim = false
 export(bool) var generate_pngs = false
 
-var png_num = 1
+var png_num = 0
 
 func _ready():
 	$id_text.text = str(card_id)
@@ -23,8 +23,13 @@ func _ready():
 		position = Vector2(250, 351)
 
 func _on_timer_timeout():
+	generate_card()
+
+func generate_card():
+	png_num += 1
 	if png_num > cards.size(): return
 	card_id = cards[png_num]
+	print("Num = ", png_num, " / ID = ", card_id )
 	
 	$id_text.text = str(card_id)
 	$title.text = card_titles[card_id]
@@ -36,10 +41,9 @@ func _on_timer_timeout():
 	image.flip_y()
 	image.convert(Image.FORMAT_RGBA8)
 	image.crop(500, 703)
-	image.save_png( str("res://textures/card textures/cardpngs/", card_id, ".png") )
-	png_num += 1
+	image.save_png( str("res://textures/card textures/cardpngs/", cards[png_num - 1], ".png") )
 
-var cards = [12, 22, 32, 42, 52, 62, 72, 82, 92, 13, 23, 33, 43, 53, 63, 73, 83, 14, 24, 34, 44, 54, 64, 74, 84]
+var cards = [12, 22, 32, 42, 52, 62, 72, 82, 92, 13, 23, 33, 43, 53, 63, 73, 83, 14, 24, 34, 44, 54, 64, 74, 84, 84]
 
 var card_titles = {
 	12: "Boss spawns bees",
