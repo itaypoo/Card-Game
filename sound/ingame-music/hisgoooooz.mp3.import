@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hisgoooooz.mp3-04e360f6c30d81ef013266a80a20c548.mp3str"
+
+[deps]
+
+source_file="res://sound/ingame-music/hisgoooooz.mp3"
+dest_files=[ "res://.import/hisgoooooz.mp3-04e360f6c30d81ef013266a80a20c548.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
