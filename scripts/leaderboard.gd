@@ -116,7 +116,7 @@ func get_winning_player():
 func _on_dialogue_bubble_dialogue_ended():
 	match dialogue_stage:
 		1:
-			$dialogue_bubble.dialogue_start(str( global.player_names[get_winning_player()], " is in the lead with ", global.player_scores[get_winning_player()], " points!" ))
+			$dialogue_bubble.dialogue_start(str( global.player_names[get_winning_player()], " is in the lead with ", int(global.player_scores[get_winning_player()]), " points!" ))
 			dialogue_stage += 1
 		2:
 			if global.current_player == 4: 
