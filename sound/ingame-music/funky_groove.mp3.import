@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/funky_groove.mp3-dbd4ddfa828c47e3559859f49c2a2fd4.mp3str"
+
+[deps]
+
+source_file="res://sound/ingame-music/funky_groove.mp3"
+dest_files=[ "res://.import/funky_groove.mp3-dbd4ddfa828c47e3559859f49c2a2fd4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

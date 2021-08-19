@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/victory_royale.mp3-8cc9754e3a039047a87d9355c91e3050.mp3str"
+
+[deps]
+
+source_file="res://sound/ingame-music/victory_royale.mp3"
+dest_files=[ "res://.import/victory_royale.mp3-8cc9754e3a039047a87d9355c91e3050.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

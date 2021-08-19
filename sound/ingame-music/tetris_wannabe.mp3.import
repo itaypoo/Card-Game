@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tetris_wannabe.mp3-ecf75fe3d07de67b997e4f02ee0cad73.mp3str"
+
+[deps]
+
+source_file="res://sound/ingame-music/tetris_wannabe.mp3"
+dest_files=[ "res://.import/tetris_wannabe.mp3-ecf75fe3d07de67b997e4f02ee0cad73.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

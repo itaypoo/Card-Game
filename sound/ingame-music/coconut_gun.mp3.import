@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/coconut_gun.mp3-b816c5bb840bf39ff201f1c0a14fb7ad.mp3str"
+
+[deps]
+
+source_file="res://sound/ingame-music/coconut_gun.mp3"
+dest_files=[ "res://.import/coconut_gun.mp3-b816c5bb840bf39ff201f1c0a14fb7ad.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

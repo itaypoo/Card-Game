@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/electro_fight.mp3-acae04033ac217ab3861537c4e07719c.mp3str"
+
+[deps]
+
+source_file="res://sound/ingame-music/electro_fight.mp3"
+dest_files=[ "res://.import/electro_fight.mp3-acae04033ac217ab3861537c4e07719c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wholesome.mp3-80ea3b64095f4bd76242bbac276f0870.mp3str"
+
+[deps]
+
+source_file="res://sound/ingame-music/wholesome.mp3"
+dest_files=[ "res://.import/wholesome.mp3-80ea3b64095f4bd76242bbac276f0870.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

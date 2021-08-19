@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ingame_music.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/winlose_screen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/world.gd" type="Script" id=4]
 [ext_resource path="res://textures/background/tile_sheet.png" type="Texture" id=5]
@@ -537,6 +538,8 @@ curve = null
 [node name="health_bar" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="winlose_screen" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="ingame_music" parent="CanvasLayer" instance=ExtResource( 2 )]
 
 [node name="HTTPRequest_disable" type="HTTPRequest" parent="."]
 
