@@ -107,5 +107,5 @@ func _on_request_completed(result, response_code, headers, body):
 		var json = JSON.parse(body.get_string_from_utf8())
 		for card in json.result.get("cards"):
 			if card.get("time") >= request_last_time:
-				spawn_card(int(card.get("cardID")))
+				spawn_card(int(card.get("id")))
 		request_last_time = json.result.get("current_time")

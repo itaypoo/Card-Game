@@ -20,7 +20,8 @@ func _physics_process(_delta):
 		else:
 			waiting_cd = 0
 			reconnect(request_types.WAITING_PHONES)
-			$HTTPRequest.request(global.domain + "waitingphones?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
+			if $HTTPRequest.get_http_client_status() == HTTPClient.STATUS_DISCONNECTED:
+				$HTTPRequest.request(global.domain + "waitingphones?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(global.game_id))
 
 
 func _on_request_completed(result, response_code, headers, body, request_type):
@@ -46,6 +47,7 @@ func available_game(json):
 		var id = int(json.result)
 		if id >= 1000 and id <= 9999:
 			global.game_id = int(json.result)
+			print(global.game_id)
 			reconnect(request_types.ADD_GAME)
 			$HTTPRequest.request(global.domain + "addgame?" + "user=" + global.user + "&pass=" + global.password + "&id=" + str(json.result))
 	
