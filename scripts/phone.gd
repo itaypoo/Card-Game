@@ -52,7 +52,7 @@ func _on_allow_button_down():
 	 "user=" + global.user +
 	 "&pass=" + global.password +
 	 "&id=" + str(global.game_id) +
-	 "&name=" + get_node("phone_name").text.replace("+", " Plus").replace(" ", "-"))
+	 "&name=" + get_node("phone_name").text.replace("+", " Plus").replace(" ", "-").replace("?", "%3F"))
 
 
 func _on_deny_button_down():
@@ -63,14 +63,14 @@ func _on_deny_button_down():
 		"user=" + global.user + 
 		"&pass=" + global.password + 
 		"&id=" + str(global.game_id) + 
-		"&name=" + get_node("phone_name").text.replace("+", " Plus").replace(" ", "-"))
+		"&name=" + get_node("phone_name").text.replace("+", " Plus").replace(" ", "-").replace("?", "%3F"))
 	else:
 		reconnect(request_types.REMOVE_PHONE)
 		$HTTPRequest.request(global.domain + "removephone?" + 
 		"user=" + global.user + 
 		"&pass=" + global.password + 
 		"&id=" + str(global.game_id) + 
-		"&name=" + get_node("phone_name").text.replace("+", " Plus").replace(" ", "-"))
+		"&name=" + get_node("phone_name").text.replace("+", " Plus").replace(" ", "-").replace("?", "%3F"))
 
 
 func reconnect(request_type):

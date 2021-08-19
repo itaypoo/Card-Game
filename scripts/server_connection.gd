@@ -57,7 +57,7 @@ func waiting_phones(json):
 	for node in $connected_devices/phones/waiting_phones.get_children():
 		if not node.name == "title":
 			for phone in json.result:
-				var phone_name = phone.get("name").replace("-", " ").replace(" Plus", "+")
+				var phone_name = phone.get("name").replace("-", " ").replace(" Plus", "+").replace("%3F", "?")
 				if (phone_name == node.get_node("phone_name").text):
 					old_phones.append(node.get_node("phone_name").text)
 	# Add new phones
@@ -66,7 +66,7 @@ func waiting_phones(json):
 	else:
 		$connected_devices/phones/waiting_phones.visible = false
 	for phone in json.result:
-		var phone_name = phone.get("name").replace("-", " ").replace(" Plus", "+")
+		var phone_name = phone.get("name").replace("-", " ").replace(" Plus", "+").replace("%3F", "?")
 		if not old_phones.has(phone_name):
 			var phone_instance = phone_scene.instance()
 			phone_instance.get_node("phone_name").text = phone_name
