@@ -110,7 +110,7 @@ func keep_in_bounds():
 
 func hurt_player(hp):
 	if invis <= 0:
-		global.plawyer_scores[global.current_player - 1] -= 10
+		global.player_scores[global.current_player - 1] -= 10
 		get_tree().call_group("hp_bar", "player_got_hurt")
 		player_hp -= hp
 		invis = 30

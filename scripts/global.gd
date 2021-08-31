@@ -4,7 +4,7 @@ var player_pos = Vector2.ZERO
 var boss_pos = Vector2.ZERO
 var player_hp = 0
 
-var play_style = "app"
+var play_style = "key"
 
 var current_player = 1
 

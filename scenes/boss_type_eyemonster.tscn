@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/boss_type_eyemonster.gd" type="Script" id=1]
 [ext_resource path="res://textures/bosses/eyemonster/body.png" type="Texture" id=2]
@@ -8,6 +8,23 @@
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 97.5691
+
+[sub_resource type="Shader" id=16]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment(){
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = SubResource( 16 )
+shader_param/flash_color = Color( 1, 0, 0, 1 )
+shader_param/flash_modifier = 0.3
 
 [sub_resource type="Curve" id=2]
 max_value = 2.0
@@ -25,17 +42,6 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.2
 scale_curve = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-emission_shape = 1
-emission_sphere_radius = 35.0
-flag_disable_z = true
-gravity = Vector3( 0, 0, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.2
-scale_curve = SubResource( 3 )
-color = Color( 1, 0.835294, 0.835294, 1 )
 
 [sub_resource type="Animation" id=6]
 resource_name = "idle"
@@ -134,6 +140,22 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 
+[sub_resource type="Animation" id=18]
+resource_name = "hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprites:material:shader_param/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0, 1 ),
+"update": 0,
+"values": [ 0.3, 0.0 ]
+}
+
 [node name="boss_type_eyemonster" type="Area2D"]
 script = ExtResource( 1 )
 
@@ -141,9 +163,11 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="sprites" type="Node2D" parent="."]
+material = SubResource( 17 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="balls" type="Particles2D" parent="sprites"]
+use_parent_material = true
 scale = Vector2( 1.66667, 1.66667 )
 amount = 30
 preprocess = 5.0
@@ -152,45 +176,39 @@ process_material = SubResource( 4 )
 texture = ExtResource( 2 )
 
 [node name="body" type="Sprite" parent="sprites"]
+use_parent_material = true
 scale = Vector2( 1.00343, 1.00343 )
 texture = ExtResource( 2 )
 
 [node name="eye" type="Sprite" parent="sprites"]
+use_parent_material = true
 position = Vector2( -45, 0 )
 rotation = 3.14159
 texture = ExtResource( 3 )
-
-[node name="balls2" type="Particles2D" parent="sprites/eye"]
-show_behind_parent = true
-position = Vector2( -1.66667, 0 )
-scale = Vector2( 1.66667, 1.66667 )
-amount = 20
-preprocess = 5.0
-visibility_rect = Rect2( -34.9957, -34.0653, 69.8475, 67.0325 )
-process_material = SubResource( 5 )
-texture = ExtResource( 2 )
 
 [node name="idle_anim" type="AnimationPlayer" parent="sprites"]
 autoplay = "idle"
 anims/idle = SubResource( 6 )
 
 [node name="smoke_particle" type="Particles2D" parent="sprites"]
+use_parent_material = true
 scale = Vector2( 1.66667, 1.66667 )
 emitting = false
 amount = 10
 one_shot = true
 explosiveness = 1.0
-visibility_rect = Rect2( -91.8965, -80.3011, 168.658, 182.345 )
+visibility_rect = Rect2( -500, -500, 1000, 1000 )
 local_coords = false
 process_material = SubResource( 9 )
 texture = ExtResource( 4 )
 
 [node name="eye_particle" type="Particles2D" parent="sprites"]
+use_parent_material = true
 scale = Vector2( 1.66667, 1.66667 )
 emitting = false
 amount = 1
 one_shot = true
-visibility_rect = Rect2( 0, -4.92163e-07, 0, 4.92163e-07 )
+visibility_rect = Rect2( -500, -500, 1000, 1000 )
 local_coords = false
 process_material = SubResource( 14 )
 texture = ExtResource( 5 )
@@ -205,6 +223,9 @@ autostart = true
 anims/teleport = SubResource( 15 )
 
 [node name="ready_anim" type="AnimationPlayer" parent="."]
+
+[node name="hurt_anim" type="AnimationPlayer" parent="."]
+anims/hurt = SubResource( 18 )
 
 [connection signal="timeout" from="teleport_timer" to="." method="_on_teleport_timer_timeout"]
 [connection signal="animation_finished" from="teleport_anim" to="." method="_on_teleport_anim_animation_finished"]

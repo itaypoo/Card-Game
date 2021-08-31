@@ -14,10 +14,10 @@ func _on_jump_anim_animation_finished(anim_name):
 	elif anim_name == "wait":
 		$jump_anim.play("jump")
 		moving = true
-		move_dir = (position - global.player_pos).angle()
+		move_dir = (global.player_pos - position).angle()
 
 func _physics_process(_delta):
 	if moving:
-		position += Vector2(5 * speed_multiplier, 0).rotated(deg2rad(move_dir))
-		for area in get_overlapping_areas():
-			if area.is_in_group("player"): area.hurt_player(1)
+		position += Vector2(5 * speed_multiplier, 0).rotated(move_dir)
+	for area in get_overlapping_areas():
+		if area.is_in_group("player"): area.hurt_player(1)

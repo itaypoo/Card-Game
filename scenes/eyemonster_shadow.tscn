@@ -1,34 +1,158 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://textures/bosses/eyemonster/shadow_sheet.png" type="Texture" id=1]
+[ext_resource path="res://textures/bosses/eyemonster/eyebomb.png" type="Texture" id=1]
 [ext_resource path="res://scripts/eyemonster_shadow.gd" type="Script" id=2]
+[ext_resource path="res://textures/cards/global_cards/pig_explosion_circle.png" type="Texture" id=3]
+[ext_resource path="res://textures/cards/global_cards/pig_explosion_particle.png" type="Texture" id=4]
 
-[sub_resource type="Animation" id=1]
-resource_name = "anim"
+[sub_resource type="CircleShape2D" id=2]
+radius = 59.473
+
+[sub_resource type="Animation" id=13]
+resource_name = "ready"
+length = 2.0
+step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:modulate")
+tracks/0/path = NodePath("sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 2 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Vector2( 0, -30 ), Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("circle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("smoke:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("coll_shape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("sprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="eyemonster_shadow" type="Node2D"]
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.712418, 0.908497 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 16.5, 0, 0, Vector2( 0.159091, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.505682, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.6, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.85
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.117647, 0.346405, 0.542484, 0.673203, 1 )
+colors = PoolColorArray( 0.951172, 1, 0, 1, 1, 0.533203, 0, 1, 1, 0, 0, 1, 1, 0.486328, 0, 1, 0.129883, 0.129883, 0.129883, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 19.35, 0, 0, Vector2( 0.1875, 0.985227 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 1
+emission_sphere_radius = 60.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 10.0
+gravity = Vector3( 0, 150, 0 )
+initial_velocity = 130.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.25
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
+
+[node name="eyemonster_shadow" type="Area2D"]
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
+
+[node name="coll_shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+disabled = true
 
 [node name="sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( 0, -30 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
-hframes = 3
 
-[node name="anim" type="AnimationPlayer" parent="."]
-autoplay = "anim"
-anims/anim = SubResource( 1 )
+[node name="ready_anim" type="AnimationPlayer" parent="."]
+anims/ready = SubResource( 13 )
 
-[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[node name="circle" type="Particles2D" parent="."]
+visible = false
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource( 7 )
+texture = ExtResource( 3 )
+
+[node name="smoke" type="Particles2D" parent="."]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource( 12 )
+texture = ExtResource( 4 )
+
+[connection signal="animation_finished" from="ready_anim" to="." method="_on_ready_anim_animation_finished"]

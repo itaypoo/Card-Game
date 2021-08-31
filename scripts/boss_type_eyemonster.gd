@@ -38,5 +38,5 @@ func _on_teleport_anim_animation_finished(anim_name):
 	for i in range(1, 10):
 		var shadow_inst = shadow.instance()
 		shadow_inst.position = oldpos + Vector2(-(distance / 10) * i, 0).rotated(angle)
-		shadow_inst.rotation_degrees = rad2deg(angle) + 180
+		shadow_inst.delay = float(i) / 15
 		get_parent().add_child(shadow_inst)

@@ -1,5 +1,7 @@
 extends Area2D
 
+onready var hurt_anim = $hurt_anim
+
 var boss_hp = 200
 var speed_multiplier = 1
 
@@ -24,6 +26,8 @@ func  _physics_process(_delta):
 ###############################################################################
 
 func hurt_boss(hp):
+	hurt_anim.stop()
+	hurt_anim.play("hurt")
 	global.player_scores[global.current_player - 1] += hp
 	boss_hp -= hp
 	if boss_hp <= 0:
