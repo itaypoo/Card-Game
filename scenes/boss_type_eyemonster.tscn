@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 97.5691
 
-[sub_resource type="Shader" id=16]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
 uniform vec4 flash_color : hint_color = vec4(1.0);
@@ -21,19 +21,19 @@ void fragment(){
 	COLOR = color;
 }"
 
-[sub_resource type="ShaderMaterial" id=17]
-shader = SubResource( 16 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/flash_color = Color( 1, 0, 0, 1 )
-shader_param/flash_modifier = 0.3
+shader_param/flash_modifier = 0.0
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=4]
 max_value = 2.0
 _data = [ Vector2( 0, 0 ), 0.0, 13.5273, 0, 0, Vector2( 0.193182, 0.972727 ), 2.9, 2.9, 0, 0, Vector2( 0.363636, 1.40909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -4.35, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=6]
 emission_shape = 1
 emission_sphere_radius = 80.0
 flag_disable_z = true
@@ -41,10 +41,9 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.2
-scale_curve = SubResource( 3 )
+scale_curve = SubResource( 5 )
 
-[sub_resource type="Animation" id=6]
-resource_name = "idle"
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("body:scale")
@@ -59,14 +58,14 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
 }
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.679739, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 1
 emission_sphere_radius = 20.0
 flag_disable_z = true
@@ -76,32 +75,31 @@ initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 30.0
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 9 )
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.660131, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=11]
-gradient = SubResource( 10 )
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=13]
 _data = [ Vector2( 0, 0 ), 0.0, 3.48387, 0, 0, Vector2( 0.284091, 0.904545 ), 0.45283, 0.45283, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=13]
-curve = SubResource( 12 )
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=14]
+[sub_resource type="ParticlesMaterial" id=15]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.7
-scale_curve = SubResource( 13 )
-color_ramp = SubResource( 11 )
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 12 )
 
-[sub_resource type="Animation" id=15]
-resource_name = "teleport"
+[sub_resource type="Animation" id=16]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprites/eye:position")
@@ -140,7 +138,7 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 resource_name = "hurt"
 length = 0.2
 tracks/0/type = "value"
@@ -158,12 +156,13 @@ tracks/0/keys = {
 
 [node name="boss_type_eyemonster" type="Area2D"]
 script = ExtResource( 1 )
+rotate_eye = false
 
 [node name="coll_shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="sprites" type="Node2D" parent="."]
-material = SubResource( 17 )
+material = SubResource( 3 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="balls" type="Particles2D" parent="sprites"]
@@ -172,7 +171,7 @@ scale = Vector2( 1.66667, 1.66667 )
 amount = 30
 preprocess = 5.0
 visibility_rect = Rect2( -79.879, -71.5549, 158.512, 150.243 )
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 texture = ExtResource( 2 )
 
 [node name="body" type="Sprite" parent="sprites"]
@@ -182,13 +181,12 @@ texture = ExtResource( 2 )
 
 [node name="eye" type="Sprite" parent="sprites"]
 use_parent_material = true
-position = Vector2( -45, 0 )
-rotation = 3.14159
+rotation = 0.226893
 texture = ExtResource( 3 )
 
 [node name="idle_anim" type="AnimationPlayer" parent="sprites"]
 autoplay = "idle"
-anims/idle = SubResource( 6 )
+anims/idle = SubResource( 7 )
 
 [node name="smoke_particle" type="Particles2D" parent="sprites"]
 use_parent_material = true
@@ -199,7 +197,7 @@ one_shot = true
 explosiveness = 1.0
 visibility_rect = Rect2( -500, -500, 1000, 1000 )
 local_coords = false
-process_material = SubResource( 9 )
+process_material = SubResource( 10 )
 texture = ExtResource( 4 )
 
 [node name="eye_particle" type="Particles2D" parent="sprites"]
@@ -210,22 +208,22 @@ amount = 1
 one_shot = true
 visibility_rect = Rect2( -500, -500, 1000, 1000 )
 local_coords = false
-process_material = SubResource( 14 )
+process_material = SubResource( 15 )
 texture = ExtResource( 5 )
 
 [node name="boss_cards" type="Node2D" parent="."]
 
 [node name="teleport_timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [node name="teleport_anim" type="AnimationPlayer" parent="."]
-anims/teleport = SubResource( 15 )
+anims/teleport = SubResource( 16 )
 
 [node name="ready_anim" type="AnimationPlayer" parent="."]
 
 [node name="hurt_anim" type="AnimationPlayer" parent="."]
-anims/hurt = SubResource( 18 )
+anims/hurt = SubResource( 17 )
 
 [connection signal="timeout" from="teleport_timer" to="." method="_on_teleport_timer_timeout"]
 [connection signal="animation_finished" from="teleport_anim" to="." method="_on_teleport_anim_animation_finished"]
