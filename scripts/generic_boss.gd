@@ -31,7 +31,7 @@ func hurt_boss(hp):
 	global.player_scores[global.current_player - 1] += hp
 	boss_hp -= hp
 	if boss_hp <= 0:
-		global.player_scores[global.current_player - 1] += time_bonus
+		#global.player_scores[global.current_player - 1] += time_bonus
 		get_tree().call_group("winlose_screen", "win_screen")
 		queue_free()
 
